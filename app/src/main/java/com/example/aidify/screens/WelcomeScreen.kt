@@ -20,7 +20,7 @@ fun WelcomeScreen(onNavigate: () -> Unit) {
     ) {
         // App title
         Text(
-            text = stringResource(id = R.string.app_name), 
+            text = stringResource(id = R.string.app_name),
             style = MaterialTheme.typography.headlineLarge,
             color = MaterialTheme.colorScheme.primary
         )

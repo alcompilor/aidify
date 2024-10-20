@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Aidify</string>
     <string name="get_started">Get Started</string>
+    <string name="select_language">Select Language</string>
+    <string name="learn_more">Learn More</string>
+    <string name="learn_more_details">Aidify helps individuals struggling with addiction by asking questions to promote self-awareness. Learn more about available resources and professional help.</string>
+    <string name="ok">OK</string>
+</resources>
+
+<resources>
+<string name="app_name">Aidify</string>
+<string name="get_started">Kom igång</string>
+<string name="select_language">Välj språk</string>
+<string name="learn_more">Läs mer</string>
+<string name="learn_more_details">Aidify hjälper individer som kämpar med missbruk genom att ställa frågor för att främja självinsikt. Läs mer om tillgängliga resurser och professionell hjälp.</string>
+<string name="ok">OK</string>
 </resources>

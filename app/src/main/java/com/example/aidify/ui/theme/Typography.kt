@@ -1,14 +1,14 @@
 package com.example.aidify.ui.theme
 
-import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.example.aidify.models.CustomTypography
 
-val Typography = Typography(
+val Typography = CustomTypography(
     // Headline for the screen (equivalent to h1 or h2).
-    headlineLarge = TextStyle(
+    headline = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.ExtraBold,
         fontSize = 34.sp,
@@ -17,7 +17,7 @@ val Typography = Typography(
     ),
 
     // Sub-headline for the large headline.
-    headlineMedium = TextStyle(
+    subheadline = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Medium,
         fontSize = 26.sp,
@@ -26,7 +26,7 @@ val Typography = Typography(
     ),
 
     // Title for sections like Summary (equivalent to h3 or h4).
-    titleLarge = TextStyle(
+    section = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 24.sp,
@@ -35,7 +35,7 @@ val Typography = Typography(
     ),
 
     // Title for displaying key points, questions, etc.
-    titleMedium = TextStyle(
+    highlight = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
@@ -44,7 +44,7 @@ val Typography = Typography(
     ),
 
     // Text for input fields, etc.
-    bodyLarge = TextStyle(
+    input = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 19.sp,
@@ -53,7 +53,7 @@ val Typography = Typography(
     ),
 
     // Text for paragraphs.
-    bodyMedium = TextStyle(
+    paragraph = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 17.5.sp,
@@ -62,7 +62,7 @@ val Typography = Typography(
     ),
 
     // Label for buttons, links, etc.
-    labelLarge = TextStyle(
+    clickable = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.SemiBold,
         fontSize = 19.sp,
@@ -71,7 +71,7 @@ val Typography = Typography(
     ),
 
     // Label for notifications like warnings and errors.
-    labelMedium = TextStyle(
+    notice = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
@@ -80,7 +80,7 @@ val Typography = Typography(
     ),
 
     // Label for tags, badges, annotations, etc.
-    labelSmall = TextStyle(
+    tag = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Medium,
         fontSize = 14.sp,

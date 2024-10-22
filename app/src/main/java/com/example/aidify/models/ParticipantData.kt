@@ -11,23 +11,23 @@ data class ParticipantData(
         return this.copy(misuseType = newType)
     }
 
-    fun updateOpenQuestion(question: String, value: String): ParticipantData {
+    fun updateOpenQuestion(question: Question, value: String): ParticipantData {
         val updatedOpenQuestions = when (question) {
-            "q1" -> openQuestions.copy(q1 = value)
-            "q2" -> openQuestions.copy(q2 = value)
+            Question.Q1 -> openQuestions.copy(q1 = value)
+            Question.Q2 -> openQuestions.copy(q2 = value)
             else -> openQuestions
         }
         return this.copy(openQuestions = updatedOpenQuestions)
     }
 
-    fun updateUncopeQuestion(question: String, value: Boolean): ParticipantData {
+    fun updateUncopeQuestion(question: Question, value: Boolean): ParticipantData {
         val updatedUncopeQuestions = when (question) {
-            "q1" -> uncopeQuestions.copy(q1 = value)
-            "q2" -> uncopeQuestions.copy(q2 = value)
-            "q3" -> uncopeQuestions.copy(q3 = value)
-            "q4" -> uncopeQuestions.copy(q4 = value)
-            "q5" -> uncopeQuestions.copy(q5 = value)
-            "q6" -> uncopeQuestions.copy(q6 = value)
+            Question.Q1 -> uncopeQuestions.copy(q1 = value)
+            Question.Q2 -> uncopeQuestions.copy(q2 = value)
+            Question.Q3 -> uncopeQuestions.copy(q3 = value)
+            Question.Q4 -> uncopeQuestions.copy(q4 = value)
+            Question.Q5 -> uncopeQuestions.copy(q5 = value)
+            Question.Q6 -> uncopeQuestions.copy(q6 = value)
             else -> uncopeQuestions
         }
         return this.copy(uncopeQuestions = updatedUncopeQuestions)
@@ -61,6 +61,15 @@ data class ParticipantData(
 enum class MisuseType {
     ALCOHOL,
     SUBSTANCE
+}
+
+enum class Question {
+    Q1,
+    Q2,
+    Q3,
+    Q4,
+    Q5,
+    Q6
 }
 
 data class UncopeQuestions(

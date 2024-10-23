@@ -3,6 +3,10 @@ package com.example.aidify.ui.theme
 import androidx.compose.ui.graphics.Color
 import com.example.aidify.models.CustomColorScheme
 
+/* Base Colors */
+val softWhite = Color(0xFFF9F9F9)
+val slateBlack = Color(0xFF1C1C1C)
+
 /* Primary Colors (Light Mode) */
 val primaryLight100 = Color(0xFFD2E4F2)
 val primaryLight200 = Color(0xFFBBD5EC)
@@ -29,19 +33,24 @@ val secondaryDarkText = Color(0xFF8696AC)
 val backgroundLight = Color(0xFFF5FAFD)
 val backgroundDark = Color(0xFF323742)
 
-/* Accent Colors (Light Mode) */
-val accent1Light = Color(0xFFFFC1A1)
-val accent2Light = Color(0xFFC1E1C5)
-val accent3Light = Color(0xFFFFDE71)
+// Accent Colors
+val accent1Light = Color(0xFFb4ddc5)
+val accent1Dark = Color(0xFF439263)
 
-/* Accent Colors (Dark Mode) */
-val accent1Dark = Color(0xFFb35a48)
-val accent2Dark = Color(0xFF439263)
-val accent3Dark = Color(0xFFbf8f30)
+val accent2Light = Color(0xFFffe694)
+val accent2Dark = Color(0xFFd68b00)
+
+val accent3Light = Color(0xFFeaa9b3) // Light Crimson
+val accent3Dark = Color(0xFFad2b3f) // Dark Crimson
+
+/* Disabled Color */
+val disabled = Color(0xFFbbbbbb)
 
 // Function to generate light color scheme
 fun lightColorScheme(): CustomColorScheme {
     return CustomColorScheme(
+        white = softWhite,
+        black = slateBlack,
         primary100 = primaryLight100,
         primary200 = primaryLight200,
         primary300 = primaryLight300,
@@ -52,13 +61,16 @@ fun lightColorScheme(): CustomColorScheme {
         background = backgroundLight,
         accent1 = accent1Light,
         accent2 = accent2Light,
-        accent3 = accent3Light
+        accent3 = accent3Light,
+        disabled = disabled
     )
 }
 
 // Function to generate dark color scheme
 fun darkColorScheme(): CustomColorScheme {
     return CustomColorScheme(
+        white = softWhite,
+        black = slateBlack,
         primary100 = primaryDark100,
         primary200 = primaryDark200,
         primary300 = primaryDark300,
@@ -69,6 +81,7 @@ fun darkColorScheme(): CustomColorScheme {
         background = backgroundDark,
         accent1 = accent1Dark,
         accent2 = accent2Dark,
-        accent3 = accent3Dark
+        accent3 = accent3Dark,
+        disabled = disabled
     )
 }

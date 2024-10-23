@@ -40,8 +40,8 @@ fun PrevScreenBtn(
         colors = ButtonColors(
             containerColor = aidifyTheme.colors.primary100,
             contentColor = aidifyTheme.colors.primaryText,
-            disabledContainerColor = Color.LightGray,
-            disabledContentColor = Color.Gray
+            disabledContainerColor = aidifyTheme.colors.disabled,
+            disabledContentColor = aidifyTheme.colors.white
         ),
         shape = CircleShape,
         modifier = Modifier.then(modifier)

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Aidify</string>
+    <string name="close_btn">Close</string>
+    <string name="visit_webpage">Visit Page</string>
 </resources>

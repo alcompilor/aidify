@@ -11,6 +11,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aidify.models.NavigatorAnimations
 import com.example.aidify.models.Route
+import com.example.aidify.screens.EducationalLibraryScreen
+import com.example.aidify.viewmodels.EducationalLibraryViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -18,7 +20,8 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Welcome.name,
+        startDestination = Route.EducationLibrary.name,
+        //startDestination = Route.Welcome.name,
         modifier = Modifier.then(modifier)
     ) {
         composable(
@@ -46,7 +49,6 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-
         }
 
         composable(
@@ -56,7 +58,6 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-
         }
 
         composable(
@@ -66,7 +67,9 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-
+            //navController.popBackStack()
+            val viewModel = EducationalLibraryViewModel()
+            EducationalLibraryScreen(viewModel)
         }
     }
 }

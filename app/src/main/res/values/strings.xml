@@ -2,8 +2,6 @@
     <string name="app_name">Aidify</string>
     <string name="get_started">Get Started</string>
     <string name="select_language">Select Language</string>
-    <string name="learn_more">Learn More</string>
-    <string name="learn_more_details">Aidify helps individuals struggling with addiction by asking questions to promote self-awareness. Learn more about available resources and professional help.</string>
-    <string name="ok">OK</string>
+    <string name="language_english">English</string>
+    <string name="language_swedish">Swedish</string>
 </resources>
-

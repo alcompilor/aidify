@@ -8,28 +8,40 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.aidify.R
+import com.example.aidify.ui.components.LanguageSpinner
 
 @Composable
 fun WelcomeScreen(onNavigate: () -> Unit) {
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(16.dp)
     ) {
-        // App title
-        Text(
-            text = stringResource(id = R.string.app_name),
-            style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.colorScheme.primary
-        )
+        // LanguageSpinner
+        LanguageSpinner(modifier = Modifier.align(Alignment.TopEnd))
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // App title
+            Text(
+                text = stringResource(id = R.string.app_name),
+                style = MaterialTheme.typography.headlineLarge,
+                color = MaterialTheme.colorScheme.primary
+            )
 
-        // "Get Started" Button
-        Button(onClick = { onNavigate() }) {
-            Text(text = stringResource(id = R.string.get_started))
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // "Get Started" Button
+            Button(onClick = { onNavigate() }) {
+                Text(text = stringResource(id = R.string.get_started))
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }

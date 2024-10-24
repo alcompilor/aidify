@@ -1,76 +1,26 @@
 package com.example.aidify.ui.theme
 
-import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.compositionLocalOf
+import com.example.aidify.models.AidifyTheme
 
-/* Dark Color Scheme */
-private val DarkColorScheme = darkColorScheme(
-    primary = primaryDark3,
-    secondary = primaryDark4,
-    tertiary = primaryDark5,
-    background = backgroundDark,
-    surface = backgroundDark,
-    onPrimary = primaryDarkText,
-    onSecondary = secondaryDarkText,
-    onBackground = primaryDarkText,
-    onSurface = primaryDarkText,
-    error = danger,
-    onError = primaryDarkText
-)
-
-/* Light Color Scheme */
-private val LightColorScheme = lightColorScheme(
-    primary = primaryLight3,
-    secondary = primaryLight4,
-    tertiary = primaryLight5,
-    background = backgroundLight,
-    surface = backgroundLight,
-    onPrimary = primaryLightText,
-    onSecondary = secondaryLightText,
-    onBackground = primaryLightText,
-    onSurface = primaryLightText,
-    error = danger,
-    onError = primaryLightText,
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
+val LocalMyCustomTheme: ProvidableCompositionLocal<AidifyTheme> =
+    compositionLocalOf { AidifyTheme(lightColorScheme(), Typography) }
 
 @Composable
-fun AidifyTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+fun AidifyThemeProvider(
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+    val colors = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()
+    val customTheme = AidifyTheme(colors, Typography)
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    CompositionLocalProvider(LocalMyCustomTheme provides customTheme) {
+        content()
     }
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
 }
+
+val aidifyTheme: AidifyTheme
+    @Composable get() = LocalMyCustomTheme.current

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Aidify</string>
+    <string name="back_button_desc">Navigate Back</string>
+    <string name="next_button_desc">Navigate to the next screen</string>
     <string name="get_started">Get Started</string>
     <string name="select_language">Select Language</string>
     <string name="language_english">English</string>

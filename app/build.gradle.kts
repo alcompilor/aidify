@@ -42,7 +42,9 @@ android {
 dependencies {
     val nav_version: String by project
     val ktor_version: String by project
+    val icons_version: String by project
 
+    implementation("androidx.compose.material:material-icons-extended:$icons_version")
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")

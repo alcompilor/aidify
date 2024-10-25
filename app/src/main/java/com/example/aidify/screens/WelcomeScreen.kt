@@ -21,9 +21,8 @@ fun WelcomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 24.dp) // Adding horizontal padding for better alignment
+            .padding(horizontal = 24.dp)
     ) {
-        // LanguageSpinner positioned in the top-right corner
         LanguageSpinner(modifier = Modifier.align(Alignment.TopEnd))
 
         Column(
@@ -33,28 +32,25 @@ fun WelcomeScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Screen title using the ScreenTitle component
             ScreenTitle(
-                title = stringResource(id = R.string.app_name), // Aidify
+                title = stringResource(id = R.string.app_name),
                 modifier = Modifier.padding(bottom = 8.dp)
             )
 
-            // Updated Subheadline with shorter text
             Text(
-                text = stringResource(id = R.string.welcome_subheadline), // Shortened subheadline text
-                style = aidifyTheme.typography.paragraph.copy(fontWeight = FontWeight.Medium), // Make the text bolder
-                color = aidifyTheme.colors.secondaryText, // Use secondary text color from aidifyTheme
-                modifier = Modifier.padding(vertical = 16.dp) // Add space around the subheadline
+                text = stringResource(id = R.string.welcome_subheadline),
+                style = aidifyTheme.typography.paragraph.copy(fontWeight = FontWeight.Medium),
+                color = aidifyTheme.colors.secondaryText,
+                modifier = Modifier.padding(vertical = 16.dp)
             )
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // "Get Started" Button using NextScreenBtn with aidifyTheme colors and typography
             NextScreenBtn(
-                text = stringResource(id = R.string.get_started), // Use the "get_started" string resource
+                text = stringResource(id = R.string.get_started),
                 isEnabled = true,
                 navController = navController,
-                route = Route.OpenQuestions // Navigate to the next route
+                route = Route.OpenQuestions
             )
         }
     }

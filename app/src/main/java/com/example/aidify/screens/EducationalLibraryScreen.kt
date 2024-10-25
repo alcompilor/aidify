@@ -44,6 +44,7 @@ import com.example.aidify.ui.components.LibraryCard
 import com.example.aidify.ui.components.ModalCardDetails
 import com.example.aidify.ui.components.NextScreenBtn
 import com.example.aidify.ui.components.PrevScreenBtn
+import com.example.aidify.ui.theme.aidifyTheme
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -97,7 +98,7 @@ fun TopBar(navController: NavController) {
 
         Text(
             text = stringResource(R.string.educational_library_screen_title),
-            style = MaterialTheme.typography.titleLarge,
+            style = aidifyTheme.typography.section,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.weight(1f),

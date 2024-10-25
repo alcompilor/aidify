@@ -9,6 +9,8 @@ data class AidifyTheme(
 )
 
 data class CustomColorScheme(
+    val white: Color,
+    val black: Color,
     val primary100: Color,
     val primary200: Color,
     val primary300: Color,
@@ -20,6 +22,7 @@ data class CustomColorScheme(
     val accent1: Color,
     val accent2: Color,
     val accent3: Color,
+    val disabled: Color,
 )
 
 data class CustomTypography(

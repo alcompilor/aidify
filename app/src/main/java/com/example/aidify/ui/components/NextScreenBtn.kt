@@ -47,10 +47,10 @@ fun NextScreenBtn(
         },
         enabled = isEnabled,
         colors = ButtonColors(
-            containerColor = aidifyTheme.colors.accent2,
+            containerColor = aidifyTheme.colors.accent1,
             contentColor = aidifyTheme.colors.primaryText,
-            disabledContainerColor = Color.LightGray,
-            disabledContentColor = Color.Gray
+            disabledContainerColor = aidifyTheme.colors.disabled,
+            disabledContentColor = aidifyTheme.colors.white
         ),
         shape = CircleShape,
         modifier = Modifier.then(modifier)

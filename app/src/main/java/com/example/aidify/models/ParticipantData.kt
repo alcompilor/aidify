@@ -79,12 +79,20 @@ data class UncopeQuestions(
     val q4: Boolean? = null,
     val q5: Boolean? = null,
     val q6: Boolean? = null,
-)
+) {
+    fun allAnswered(): Boolean {
+        return listOf(q1, q2, q3, q4, q5, q6).all { it != null }
+    }
+}
 
 data class OpenQuestions(
     val q1: String? = null,
     val q2: String? = null,
-)
+) {
+    fun allAnswered(): Boolean {
+        return listOf(q1, q2).all { it != null }
+    }
+}
 
 data class Result(
     val summary: String? = null,

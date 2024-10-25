@@ -20,8 +20,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.EducationLibrary.name,
-        //startDestination = Route.Welcome.name,
+        startDestination = Route.Welcome.name,
         modifier = Modifier.then(modifier)
     ) {
         composable(
@@ -67,9 +66,8 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            //navController.popBackStack()
             val viewModel = EducationalLibraryViewModel()
-            EducationalLibraryScreen(viewModel)
+            EducationalLibraryScreen(viewModel, navController)
         }
     }
 }

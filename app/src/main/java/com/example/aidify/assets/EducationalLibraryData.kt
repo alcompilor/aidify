@@ -63,11 +63,11 @@ object cardsData {
             category = CardCategory.SUBSTANCE
         ),
         EducationalLibraryCard(
-            title = "Addiction Educational Videos",
-            description = "",
+            title = "Educational Videos",
+            description = "A List of educational videos covering the most important topics",
             link = "https://www.can.se/nationell-fordjupningskurs-forstarkt-barn-och-foraldraperspektiv-vid-missbruk-och-beroende/utbildningsfilmer/",
             mediaType = CardMediaType.VIDEO,
-            category = CardCategory.SUBSTANCE
+            category = CardCategory.ALCOHOL
         )
     )
 }

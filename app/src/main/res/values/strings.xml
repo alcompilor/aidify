@@ -2,4 +2,11 @@
     <string name="app_name">Aidify</string>
     <string name="back_button_desc">Navigate Back</string>
     <string name="next_button_desc">Navigate to the next screen</string>
+    <string name="close_btn">close</string>
+    <string name="visit_webpage">visit</string>
+    <string name="article_icon_description">Article Icon</string>
+    <string name="play_icon_description">Play Icon</string>
+    <string name="educational_library_screen_title">Educational Library</string>
+    <string name="alcohol_category">ALCOHOL</string>
+    <string name="substance_category">SUBSTANCE</string>
 </resources>

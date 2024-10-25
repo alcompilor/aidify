@@ -13,7 +13,7 @@ val Typography = CustomTypography(
         fontWeight = FontWeight.ExtraBold,
         fontSize = 34.sp,
         lineHeight = 42.sp,
-        letterSpacing = (-0.5).sp
+        letterSpacing = (-0.4).sp
     ),
 
     // Sub-headline for the large headline.
@@ -37,8 +37,8 @@ val Typography = CustomTypography(
     // Title for displaying key points, questions, etc.
     highlight = TextStyle(
         fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Bold,
-        fontSize = 22.sp,
+        fontWeight = FontWeight.Medium,
+        fontSize = 20.sp,
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),

@@ -50,7 +50,7 @@ fun NextScreenBtn(
             containerColor = aidifyTheme.colors.accent1,
             contentColor = aidifyTheme.colors.primaryText,
             disabledContainerColor = aidifyTheme.colors.disabled,
-            disabledContentColor = aidifyTheme.colors.white
+            disabledContentColor = aidifyTheme.colors.primaryText
         ),
         shape = CircleShape,
         modifier = Modifier.then(modifier)

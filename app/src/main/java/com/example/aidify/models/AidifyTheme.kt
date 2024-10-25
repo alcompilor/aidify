@@ -22,6 +22,7 @@ data class CustomColorScheme(
     val accent1: Color,
     val accent2: Color,
     val accent3: Color,
+    val accent4: Color,
     val disabled: Color,
 )
 

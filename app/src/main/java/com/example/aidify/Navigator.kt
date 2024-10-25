@@ -12,12 +12,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aidify.models.NavigatorAnimations
 import com.example.aidify.models.Route
-import com.example.aidify.screens.EducationalLibraryScreen
-import com.example.aidify.viewmodels.EducationalLibraryViewModel
+import com.example.aidify.screens.UncopeScreen
+import com.example.aidify.viewmodels.DataViewModel
+import com.example.aidify.viewmodels.UncopeViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
     val animations = getAnimations()
+    val dataViewModel: DataViewModel = viewModel()
 
     NavHost(
         navController = navController,
@@ -49,6 +51,8 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
+            val uncopeViewModel = UncopeViewModel(dataViewModel.state)
+            UncopeScreen(viewmodel = uncopeViewModel, navController = navController)
         }
 
         composable(
@@ -58,6 +62,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
+
         }
 
         composable(
@@ -67,8 +72,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            val educationalLibraryViewModel: EducationalLibraryViewModel = viewModel()
-            EducationalLibraryScreen(educationalLibraryViewModel, navController)
+
         }
     }
 }

@@ -27,24 +27,28 @@ val secondaryLightText = Color(0xFF46627A)
 
 /* Text Colors (Dark Mode) */
 val primaryDarkText = Color(0xFFC0CAD6)
-val secondaryDarkText = Color(0xFF8696AC)
+val secondaryDarkText = Color(0xFF97a5b8)
 
 /* Background Colors */
 val backgroundLight = Color(0xFFF5FAFD)
 val backgroundDark = Color(0xFF323742)
 
-// Accent Colors
+/* Accent Colors */
 val accent1Light = Color(0xFFb4ddc5)
 val accent1Dark = Color(0xFF439263)
 
 val accent2Light = Color(0xFFffe694)
 val accent2Dark = Color(0xFFd68b00)
 
-val accent3Light = Color(0xFFeaa9b3) // Light Crimson
-val accent3Dark = Color(0xFFad2b3f) // Dark Crimson
+val accent3Light = Color(0xFFeaa9b3)
+val accent3Dark = Color(0xFFad2b3f)
+
+val accent4Light = Color(0xFF7BAAD3)
+val accent4Dark = Color(0xFF4e6d9e)
 
 /* Disabled Color */
-val disabled = Color(0xFFbbbbbb)
+val disabledLight = Color(0xFFdcdedf)
+val disabledDark = Color(0xFF737a7c)
 
 // Function to generate light color scheme
 fun lightColorScheme(): CustomColorScheme {
@@ -62,7 +66,8 @@ fun lightColorScheme(): CustomColorScheme {
         accent1 = accent1Light,
         accent2 = accent2Light,
         accent3 = accent3Light,
-        disabled = disabled
+        accent4 = accent4Light,
+        disabled = disabledLight
     )
 }
 
@@ -82,6 +87,7 @@ fun darkColorScheme(): CustomColorScheme {
         accent1 = accent1Dark,
         accent2 = accent2Dark,
         accent3 = accent3Dark,
-        disabled = disabled
+        accent4 = accent4Dark,
+        disabled = disabledDark
     )
 }

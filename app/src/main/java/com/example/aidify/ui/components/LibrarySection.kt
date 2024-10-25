@@ -12,12 +12,18 @@ import com.example.aidify.models.CardCategory
 import com.example.aidify.models.EducationalLibraryCard
 
 @Composable
-fun LibrarySection(cardList: List<EducationalLibraryCard>, onCardSelected: (EducationalLibraryCard) -> Unit, category: CardCategory) {
+fun LibrarySection(
+    cardList: List<EducationalLibraryCard>,
+    onCardSelected: (EducationalLibraryCard) -> Unit,
+    category: CardCategory,
+    modifier: Modifier = Modifier
+) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 128.dp),
         contentPadding = PaddingValues(16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier.then(modifier)
     ) {
         items(cardList.size) { index ->
             val card = cardList[index]

@@ -1,33 +1,32 @@
 package com.example.aidify.ui.components
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Article
+import androidx.compose.material.icons.automirrored.filled.Article
 import androidx.compose.material.icons.rounded.PlayCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.aidify.R
 import com.example.aidify.models.CardMediaType
 import com.example.aidify.ui.theme.aidifyTheme
-import kotlin.math.round
 
 @Composable
 fun LibraryCard(
@@ -54,7 +53,7 @@ fun LibraryCard(
             ) {
                 Icon(
                     imageVector = if (mediaType == CardMediaType.ARTICLE)
-                        Icons.Rounded.Article
+                        Icons.AutoMirrored.Default.Article
                     else
                         Icons.Rounded.PlayCircle,
                     contentDescription = (if (mediaType == CardMediaType.ARTICLE)

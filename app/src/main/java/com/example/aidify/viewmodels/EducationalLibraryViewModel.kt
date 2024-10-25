@@ -1,6 +1,8 @@
 package com.example.aidify.viewmodels
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
 import com.example.aidify.models.EducationalLibraryCard
@@ -19,6 +21,9 @@ class EducationalLibraryViewModel : ViewModel() {
     private val _isModalOpen = MutableStateFlow(false)
     val isModalOpen: StateFlow<Boolean> = _isModalOpen
 
+    private val _currentTab = MutableStateFlow(0)
+    val currentTab: StateFlow<Int> = _currentTab
+
     init {
         loadCardsContent()
     }
@@ -34,5 +39,9 @@ class EducationalLibraryViewModel : ViewModel() {
 
     fun closeModal() {
         _isModalOpen.value = false
+    }
+
+    fun switchTab(i: Int) {
+        _currentTab.value = i
     }
 }

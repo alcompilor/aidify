@@ -24,6 +24,7 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.asIntState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -41,6 +42,7 @@ import com.example.aidify.models.CardCategory
 import com.example.aidify.models.EducationalLibraryCard
 import com.example.aidify.models.Route
 import com.example.aidify.ui.components.LibraryCard
+import com.example.aidify.ui.components.LibrarySection
 import com.example.aidify.ui.components.ModalCardDetails
 import com.example.aidify.ui.components.NextScreenBtn
 import com.example.aidify.ui.components.PrevScreenBtn
@@ -53,8 +55,8 @@ fun EducationalLibraryScreen(viewModel: EducationalLibraryViewModel, navControll
     val cardList by viewModel.cardList.collectAsState()
     val isModalOpen by viewModel.isModalOpen.collectAsState()
     val selectedCard by viewModel.selectedCard.collectAsState()
+    val currentTab by viewModel.currentTab.collectAsState()
 
-    var currentTab by remember { mutableStateOf(0) }
     val categoryTabs = listOf("ALCOHOL", "SUBSTANCE")
 
     if (isModalOpen) {
@@ -73,13 +75,13 @@ fun EducationalLibraryScreen(viewModel: EducationalLibraryViewModel, navControll
                 Tab(
                     text = { Text(title) },
                     selected = currentTab == index,
-                    onClick = { currentTab = index }
+                    onClick = { viewModel.switchTab(index) }
                 )
             }
         }
         when (currentTab) {
-            0 -> AlcoholSection(cardList = cardList, onCardSelected = { viewModel.selectCard(it) })
-            1 -> SubstanceSection(cardList = cardList, onCardSelected = { viewModel.selectCard(it) })
+            0 -> LibrarySection(cardList = cardList, onCardSelected = { viewModel.selectCard(it) }, category = CardCategory.ALCOHOL)
+            1 -> LibrarySection(cardList = cardList, onCardSelected = { viewModel.selectCard(it) }, category = CardCategory.SUBSTANCE)
         }
     }
 }
@@ -106,47 +108,5 @@ fun TopBar(navController: NavController) {
         )
 
         NextScreenBtn("start", true, navController, route = Route.OpenQuestions)
-    }
-}
-
-@Composable
-fun AlcoholSection(cardList: List<EducationalLibraryCard>, onCardSelected: (EducationalLibraryCard) -> Unit) {
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 128.dp),
-        contentPadding = PaddingValues(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        items(cardList.size) { index ->
-            val card = cardList[index]
-            if (card.category == CardCategory.ALCOHOL) {
-                LibraryCard(
-                    title = card.title,
-                    mediaType = card.mediaType,
-                    modifier = Modifier.clickable { onCardSelected(card) }
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun SubstanceSection(cardList: List<EducationalLibraryCard>, onCardSelected: (EducationalLibraryCard) -> Unit) {
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 128.dp),
-        contentPadding = PaddingValues(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        items(cardList.size) { index ->
-            val card = cardList[index]
-            if (card.category == CardCategory.SUBSTANCE) {
-                LibraryCard(
-                    title = card.title,
-                    mediaType = card.mediaType,
-                    modifier = Modifier.clickable { onCardSelected(card) }
-                )
-            }
-        }
     }
 }

@@ -6,6 +6,7 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -66,8 +67,8 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            val viewModel = EducationalLibraryViewModel()
-            EducationalLibraryScreen(viewModel, navController)
+            val educationalLibraryViewModel: EducationalLibraryViewModel = viewModel()
+            EducationalLibraryScreen(educationalLibraryViewModel, navController)
         }
     }
 }

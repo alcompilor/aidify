@@ -6,6 +6,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Article
+import androidx.compose.material.icons.rounded.PlayCircle
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -50,12 +53,10 @@ fun LibraryCard(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(
-                        id = if (mediaType == CardMediaType.ARTICLE)
-                            R.drawable.baseline_article_16
-                        else
-                            R.drawable.baseline_play_circle_16
-                    ),
+                    imageVector = if (mediaType == CardMediaType.ARTICLE)
+                        Icons.Rounded.Article
+                    else
+                        Icons.Rounded.PlayCircle,
                     contentDescription = (if (mediaType == CardMediaType.ARTICLE)
                         R.string.article_icon_description
                     else
@@ -71,8 +72,8 @@ fun LibraryCard(
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = title,
-            color = MaterialTheme.colorScheme.onSurface,
-            style = MaterialTheme.typography.titleMedium,
+            color = aidifyTheme.colors.secondaryText,
+            style = aidifyTheme.typography.paragraph,
             textAlign = TextAlign.Center,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,

@@ -61,7 +61,7 @@ fun LibraryCard(
                         R.string.article_icon_description
                     else
                         R.string.play_icon_description).toString(),
-                    tint = MaterialTheme.colorScheme.onSecondary,
+                    tint = aidifyTheme.colors.secondaryText,
                     modifier = Modifier
                         .size(50.dp)
                         .alpha(0.85f)

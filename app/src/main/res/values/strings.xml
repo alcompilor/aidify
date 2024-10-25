@@ -14,4 +14,11 @@
     <string name="binary_option_yes">Yes</string>
     <string name="binary_option_no">No</string>
     <string name="item_icon_desc">Item Icon</string>
+    <string name="close_btn">close</string>
+    <string name="visit_webpage">visit</string>
+    <string name="article_icon_description">Article Icon</string>
+    <string name="play_icon_description">Play Icon</string>
+    <string name="educational_library_screen_title">Educational Library</string>
+    <string name="alcohol_category">ALCOHOL</string>
+    <string name="substance_category">SUBSTANCE</string>
 </resources>

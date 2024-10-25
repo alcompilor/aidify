@@ -46,6 +46,7 @@ import com.example.aidify.ui.components.LibrarySection
 import com.example.aidify.ui.components.ModalCardDetails
 import com.example.aidify.ui.components.NextScreenBtn
 import com.example.aidify.ui.components.PrevScreenBtn
+import com.example.aidify.ui.components.TopBar
 import com.example.aidify.ui.theme.aidifyTheme
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
 
@@ -83,30 +84,5 @@ fun EducationalLibraryScreen(viewModel: EducationalLibraryViewModel, navControll
             0 -> LibrarySection(cardList = cardList, onCardSelected = { viewModel.selectCard(it) }, category = CardCategory.ALCOHOL)
             1 -> LibrarySection(cardList = cardList, onCardSelected = { viewModel.selectCard(it) }, category = CardCategory.SUBSTANCE)
         }
-    }
-}
-
-@Composable
-fun TopBar(navController: NavController) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-            .height(56.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        PrevScreenBtn("back", true, navController)
-
-        Text(
-            text = stringResource(R.string.educational_library_screen_title),
-            style = aidifyTheme.typography.section,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.weight(1f),
-            textAlign = TextAlign.Center
-        )
-
-        NextScreenBtn("start", true, navController, route = Route.OpenQuestions)
     }
 }

@@ -11,7 +11,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aidify.models.NavigatorAnimations
 import com.example.aidify.models.Route
-import com.example.aidify.screens.WelcomeScreen
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -29,9 +28,6 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            WelcomeScreen(onNavigate = {
-                navController.navigate(Route.OpenQuestions.name)
-            })
         }
 
         composable(

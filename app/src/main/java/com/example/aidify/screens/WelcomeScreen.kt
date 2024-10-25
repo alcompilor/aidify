@@ -7,17 +7,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.aidify.R
+import com.example.aidify.models.Route
 import com.example.aidify.ui.components.LanguageSpinner
+import com.example.aidify.ui.components.NextScreenBtn
 
 @Composable
-fun WelcomeScreen(onNavigate: () -> Unit) {
+fun WelcomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // LanguageSpinner
+        // LanguageSpinner positioned in the top-right corner
         LanguageSpinner(modifier = Modifier.align(Alignment.TopEnd))
 
         Column(
@@ -29,19 +32,20 @@ fun WelcomeScreen(onNavigate: () -> Unit) {
         ) {
             // App title
             Text(
-                text = stringResource(id = R.string.app_name),
+                text = stringResource(id = R.string.app_name), // Aidify
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.primary
             )
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // "Get Started" Button
-            Button(onClick = { onNavigate() }) {
-                Text(text = stringResource(id = R.string.get_started))
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
+            // "Get Started" button
+            NextScreenBtn(
+                text = stringResource(id = R.string.get_started),
+                isEnabled = true,
+                navController = navController,
+                route = Route.OpenQuestions
+            )
         }
     }
 }

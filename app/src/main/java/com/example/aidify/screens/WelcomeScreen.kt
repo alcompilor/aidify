@@ -12,6 +12,7 @@ import com.example.aidify.R
 import com.example.aidify.models.Route
 import com.example.aidify.ui.components.LanguageSpinner
 import com.example.aidify.ui.components.NextScreenBtn
+import com.example.aidify.ui.theme.aidifyTheme
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
@@ -20,7 +21,6 @@ fun WelcomeScreen(navController: NavController) {
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        // LanguageSpinner positioned in the top-right corner
         LanguageSpinner(modifier = Modifier.align(Alignment.TopEnd))
 
         Column(
@@ -30,16 +30,15 @@ fun WelcomeScreen(navController: NavController) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // App title
+
             Text(
                 text = stringResource(id = R.string.app_name), // Aidify
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.primary
+                style = aidifyTheme.typography.headline,
+                color = aidifyTheme.colors.primaryText
             )
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // "Get Started" button
             NextScreenBtn(
                 text = stringResource(id = R.string.get_started),
                 isEnabled = true,

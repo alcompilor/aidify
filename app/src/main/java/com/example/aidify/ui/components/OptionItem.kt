@@ -1,3 +1,4 @@
+/*
 package com.example.aidify.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
@@ -61,3 +62,4 @@ fun OptionItem(
         }
     }
 }
+*/

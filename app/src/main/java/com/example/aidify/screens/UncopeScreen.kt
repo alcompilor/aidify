@@ -1,3 +1,4 @@
+/*
 package com.example.aidify.screens
 
 import android.content.res.Configuration
@@ -72,3 +73,4 @@ fun getQuestions(): Map<Question, String> {
         Question.Q6 to stringResource(R.string.uncope_question_6),
     )
 }
+*/

@@ -1,3 +1,4 @@
+/*
 
 package com.example.aidify.ui.components
 
@@ -63,3 +64,4 @@ fun OptionItem(
     }
 }
 
+*/

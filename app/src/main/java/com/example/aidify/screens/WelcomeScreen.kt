@@ -44,6 +44,7 @@ fun WelcomeScreen(navController: NavController) {
                 modifier = Modifier.padding(vertical = 16.dp)
             )
 
+
             Spacer(modifier = Modifier.height(20.dp))
 
             NextScreenBtn(

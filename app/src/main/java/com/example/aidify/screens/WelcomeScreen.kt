@@ -53,6 +53,15 @@ fun WelcomeScreen(navController: NavController) {
                 navController = navController,
                 route = Route.OpenQuestions
             )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            NextScreenBtn(
+                text = stringResource(id = R.string.educational_library),
+                isEnabled = true,
+                navController = navController,
+                route = Route.EducationLibrary
+            )
         }
     }
 }

@@ -1,6 +1,9 @@
 package com.example.aidify.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.LocalLibrary
+import androidx.compose.material.icons.outlined.Quiz
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,9 +24,13 @@ fun WelcomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 24.dp)
+            .padding(0.dp)
     ) {
-        LanguageSpinner(modifier = Modifier.align(Alignment.TopEnd))
+        LanguageSpinner(
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(6.dp)
+        )
 
         Column(
             modifier = Modifier
@@ -34,16 +41,22 @@ fun WelcomeScreen(navController: NavController) {
         ) {
             ScreenTitle(
                 title = stringResource(id = R.string.app_name),
-                modifier = Modifier.padding(bottom = 8.dp)
+                modifier = Modifier
+                    .padding(bottom = 8.dp)
+                    .offset(x = (-10).dp)
             )
 
             Text(
                 text = stringResource(id = R.string.welcome_subheadline),
-                style = aidifyTheme.typography.paragraph.copy(fontWeight = FontWeight.Medium),
+                style = aidifyTheme.typography.paragraph.copy(
+                    fontWeight = FontWeight.SemiBold
+                ),
                 color = aidifyTheme.colors.secondaryText,
-                modifier = Modifier.padding(vertical = 16.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
             )
-
 
             Spacer(modifier = Modifier.height(20.dp))
 
@@ -51,7 +64,8 @@ fun WelcomeScreen(navController: NavController) {
                 text = stringResource(id = R.string.get_started),
                 isEnabled = true,
                 navController = navController,
-                route = Route.OpenQuestions
+                route = Route.OpenQuestions,
+                icon = Icons.Outlined.Quiz
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -60,7 +74,8 @@ fun WelcomeScreen(navController: NavController) {
                 text = stringResource(id = R.string.educational_library),
                 isEnabled = true,
                 navController = navController,
-                route = Route.EducationLibrary
+                route = Route.EducationLibrary,
+                icon = Icons.Outlined.LocalLibrary
             )
         }
     }

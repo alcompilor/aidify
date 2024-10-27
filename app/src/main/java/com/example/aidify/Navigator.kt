@@ -16,7 +16,9 @@ import com.example.aidify.screens.UncopeScreen
 import com.example.aidify.viewmodels.DataViewModel
 import com.example.aidify.viewmodels.UncopeViewModel
 import com.example.aidify.screens.EducationalLibraryScreen
+import com.example.aidify.screens.PilScreen
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
+import com.example.aidify.viewmodels.PilViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -25,7 +27,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Welcome.name,
+        startDestination = Route.PIL.name,
         modifier = Modifier.then(modifier)
     ) {
         composable(
@@ -55,6 +57,17 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
         ) {
             val uncopeViewModel = UncopeViewModel(dataViewModel.state)
             UncopeScreen(viewmodel = uncopeViewModel, navController = navController)
+        }
+
+        composable(
+            route = Route.PIL.name,
+            enterTransition = animations.enterTransition,
+            exitTransition = animations.exitTransition,
+            popEnterTransition = animations.popEnterTransition,
+            popExitTransition = animations.popExitTransition
+        ) {
+            val pilViewModel = PilViewModel(dataViewModel.state)
+            PilScreen(viewModel = pilViewModel, navController = navController)
         }
 
         composable(

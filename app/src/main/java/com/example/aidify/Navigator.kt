@@ -36,6 +36,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
+            WelcomeScreen(navController = navController)
         }
 
         composable(

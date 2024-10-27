@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.aidify.ui.theme.AidifyThemeProvider
 import com.example.aidify.ui.theme.aidifyTheme
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

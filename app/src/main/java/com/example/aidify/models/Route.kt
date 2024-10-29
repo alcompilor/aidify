@@ -5,5 +5,6 @@ enum class Route {
     OpenQuestions,
     UNCOPE,
     Summary,
-    EducationLibrary
+    EducationLibrary,
+    ChoiceScreen
 }

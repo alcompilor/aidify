@@ -18,6 +18,7 @@ import com.example.aidify.viewmodels.UncopeViewModel
 import com.example.aidify.screens.EducationalLibraryScreen
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
 import com.example.aidify.screens.WelcomeScreen
+import com.example.aidify.screens.ChoiceScreen
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -37,6 +38,16 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popExitTransition = animations.popExitTransition
         ) {
             WelcomeScreen(navController = navController)
+        }
+
+        composable(
+            route = Route.ChoiceScreen.name,
+            enterTransition = animations.enterTransition,
+            exitTransition = animations.exitTransition,
+            popEnterTransition = animations.popEnterTransition,
+            popExitTransition = animations.popExitTransition
+        ) {
+            ChoiceScreen(navController = navController)
         }
 
         composable(

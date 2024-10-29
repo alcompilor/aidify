@@ -30,7 +30,7 @@ fun ChoiceScreen(navController: NavController) {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        
+
         Button(
             onClick = { navController.navigate(Route.UNCOPE.name) },
             modifier = Modifier

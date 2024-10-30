@@ -23,4 +23,7 @@
     <string name="substance_category">Substance</string>
     <string name="start_button">Start</string>
     <string name="description">Description</string>
+    <string name="ai_loading_notice">Hang tight, we\'re working on it!</string>
+    <string name="ai_success_notice">Completed</string>
+    <string name="ai_error_notice">An error occurred, try again later</string>
 </resources>

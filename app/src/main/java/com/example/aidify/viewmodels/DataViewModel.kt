@@ -2,6 +2,7 @@ package com.example.aidify.viewmodels
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.example.aidify.models.Language
 import com.example.aidify.models.ParticipantData
 import com.example.aidify.models.RequestState
 import com.example.aidify.services.AssessmentService
@@ -20,10 +21,10 @@ class DataViewModel : ViewModel() {
         _aiRequestState.value = RequestState.Idle
     }
 
-    suspend fun performAiProcessing() {
+    suspend fun performAiProcessing(lang: Language) {
         _aiRequestState.value = RequestState.Loading
         try {
-            _data.value = this.assessmentService.requestAIProcessing(_data.value)
+            _data.value = this.assessmentService.requestAIProcessing(_data.value, lang)
             _aiRequestState.value = RequestState.Success(_data.value)
         } catch (e: Exception) {
             _aiRequestState.value =

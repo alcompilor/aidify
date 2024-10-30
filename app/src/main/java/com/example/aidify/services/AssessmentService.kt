@@ -2,7 +2,9 @@ package com.example.aidify.services
 
 import android.util.Log
 import com.example.aidify.BuildConfig
+import com.example.aidify.models.Language
 import com.example.aidify.models.ParticipantData
+import com.example.aidify.models.RequestData
 import com.example.aidify.models.ResponseData
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -37,11 +39,9 @@ class AssessmentService {
         }
     }
 
-    suspend fun requestAIProcessing(data: ParticipantData): ParticipantData {
+    suspend fun requestAIProcessing(data: ParticipantData, lang: Language): ParticipantData {
         val jsonData = Json.encodeToString(
-            mapOf(
-                "payload" to data
-            )
+            RequestData(payload = data, locale = lang.name.lowercase())
         )
 
         println(jsonData)

@@ -122,3 +122,9 @@ data class Summary(
     val assessment: String? = null,
     val abuseRisk: String? = null
 )
+
+@Serializable
+enum class Language {
+    EN,
+    SV
+}

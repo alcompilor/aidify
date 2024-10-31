@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -20,14 +18,12 @@ import com.example.aidify.R
 import com.example.aidify.models.Route
 import com.example.aidify.ui.components.NextScreenBtn
 import com.example.aidify.ui.components.PrevScreenBtn
-import com.example.aidify.viewmodels.PilViewModel
-import androidx.compose.runtime.*
+import com.example.aidify.viewmodels.StageViewModel
 import com.example.aidify.ui.components.OpenQuestion
 
 @Composable
-fun PilScreen(viewModel: PilViewModel, navController: NavController) {
-    val buttonEnabled by viewModel.isSummarizeButtonEnabled.collectAsState()
-    var response by remember { mutableStateOf("") }
+fun StageScreen(viewModel: StageViewModel, navController: NavController) {
+    val buttonEnabled by viewModel.isSubmitButtonEnabled.collectAsState()
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -46,7 +42,6 @@ fun PilScreen(viewModel: PilViewModel, navController: NavController) {
             isEnabled = buttonEnabled,
             navController = navController,
             route = Route.Summary,
-            onTrigger = { viewModel.sendSummary(response) }
         )
     }
     Column(
@@ -57,11 +52,11 @@ fun PilScreen(viewModel: PilViewModel, navController: NavController) {
     ) {
         OpenQuestion(
             question = stringResource(R.string.pil_question),
-            response = response,
+            response = viewModel.state.value.symptoms.toString(),
             placeholderText = stringResource(R.string.pil_response_placeholder),
             onValueChange = { input ->
-                response = input
-                viewModel.enableSummarizeButton(input)
+                viewModel.pushSymptoms(input)
+                viewModel.updateSubmitButton(input)
             },
         )
     }

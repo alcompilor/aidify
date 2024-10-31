@@ -12,11 +12,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aidify.models.NavigatorAnimations
 import com.example.aidify.models.Route
-import com.example.aidify.screens.UncopeScreen
-import com.example.aidify.viewmodels.DataViewModel
-import com.example.aidify.viewmodels.UncopeViewModel
 import com.example.aidify.screens.EducationalLibraryScreen
+import com.example.aidify.screens.UncopeScreen
+import com.example.aidify.screens.WelcomeScreen
+import com.example.aidify.viewmodels.DataViewModel
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
+import com.example.aidify.viewmodels.UncopeViewModel
+import com.example.aidify.viewmodels.WelcomeViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -35,6 +37,8 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
+            val welcomeViewModel: WelcomeViewModel = viewModel()
+            WelcomeScreen(viewmodel = welcomeViewModel, navController = navController)
         }
 
         composable(

@@ -1,51 +1,76 @@
 package com.example.aidify.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Language
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat.recreate
+import com.example.aidify.MainActivity
 import com.example.aidify.R
+import com.example.aidify.ui.theme.aidifyTheme
+import java.util.Locale
 
 @Composable
-fun LanguageSpinner(modifier: Modifier = Modifier) {
+fun LanguageSpinner(
+    modifier: Modifier = Modifier,
+    dropdownExpansionState: Boolean,
+    updateDropdownExpansionState: (value: Boolean) -> Unit,
+    onLanguageChange: (String) -> Unit
+) {
     val languages = listOf(
-        stringResource(id = R.string.language_english),
-        stringResource(id = R.string.language_swedish)
+        stringResource(id = R.string.language_english) to "en",
+        stringResource(id = R.string.language_swedish) to "sv"
     )
-
-    var expanded by remember { mutableStateOf(false) }
-    var selectedLanguage by remember { mutableStateOf(languages[0]) }
 
     Box(
         modifier = modifier.wrapContentSize(),
         contentAlignment = Alignment.TopEnd
     ) {
-        IconButton(onClick = { expanded = !expanded }) {
+        IconButton(onClick = { updateDropdownExpansionState(!dropdownExpansionState) }) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_globe),
+                imageVector = Icons.Rounded.Language,
                 contentDescription = stringResource(id = R.string.select_language),
-                tint = Color.Unspecified,
-                modifier = Modifier.size(28.dp)
+                tint = aidifyTheme.colors.accent4,
+                modifier = Modifier.size(34.dp)
             )
         }
 
         DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
+            expanded = dropdownExpansionState,
+            onDismissRequest = { updateDropdownExpansionState(false) },
+            modifier = Modifier
+                .background(aidifyTheme.colors.primary100)
+                .padding(5.dp)
+                .clip(shape = RoundedCornerShape(5.dp))
         ) {
-            languages.forEach { language ->
+
+            languages.forEach { (language, code) ->
                 DropdownMenuItem(
-                    text = { Text(language) },
+                    text = {
+                        Text(
+                            language,
+                            color = aidifyTheme.colors.primaryText,
+                            style = aidifyTheme.typography.notice
+                        )
+                    },
                     onClick = {
-                        selectedLanguage = language
-                        expanded = false
+                        updateDropdownExpansionState(false)
+                        onLanguageChange(code)
                     }
                 )
             }

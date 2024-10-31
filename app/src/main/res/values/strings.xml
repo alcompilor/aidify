@@ -23,4 +23,11 @@
     <string name="substance_category">Substance</string>
     <string name="start_button">Start</string>
     <string name="description">Description</string>
+    <string name="get_started">Get Started</string>
+    <string name="select_language">Select Language</string>
+    <string name="language_english">English</string>
+    <string name="language_swedish">Swedish</string>
+    <string name="welcome_subheadline">Quickly evaluate your substance use with a self-assessment and get personalized insights</string>
+    <string name="educational_library">Education Library</string>
+    <string name="welcome_headline">Your first step toward a healthier you</string>
 </resources>

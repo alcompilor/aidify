@@ -34,7 +34,7 @@ fun OpenQuestion(
     Row {
         Icon(
             imageVector = Icons.Outlined.Help,
-            contentDescription = "Question icon",
+            contentDescription = stringResource(R.string.question_icon_description),
             modifier = Modifier
                 .size(24.dp)
                 .width(24.dp),

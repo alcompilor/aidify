@@ -7,13 +7,13 @@ import com.example.aidify.models.ParticipantData
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class StageViewModel(private val _state: MutableState<ParticipantData>) : ViewModel() {
-    private val _isSubmitButtonEnabled = MutableStateFlow(false)
-    val isSubmitButtonEnabled: StateFlow<Boolean> = _isSubmitButtonEnabled
+class StageCheckViewModel(private val _state: MutableState<ParticipantData>) : ViewModel() {
+    private val _isStageSubmitButtonEnabled = MutableStateFlow(false)
+    val isStageSubmitButtonEnabled: StateFlow<Boolean> = _isStageSubmitButtonEnabled
     val state: State<ParticipantData> get() = _state
 
-    fun updateSubmitButton(response: String) {
-        _isSubmitButtonEnabled.value = response.isNotEmpty()
+    fun updateStageSubmitButton(response: String) {
+        _isStageSubmitButtonEnabled.value = response.isNotEmpty()
     }
 
     fun pushSymptoms(response: String) {

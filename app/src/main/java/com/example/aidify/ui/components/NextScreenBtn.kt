@@ -36,7 +36,6 @@ fun NextScreenBtn(
     route: Route,
     callback: suspend () -> Unit = {},
     icon: ImageVector = Icons.AutoMirrored.Rounded.ArrowForwardIos,
-    onTrigger: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Button(
@@ -45,7 +44,6 @@ fun NextScreenBtn(
             CoroutineScope(Dispatchers.Main).launch {
                 callback()
             }
-            onTrigger()
         },
         enabled = isEnabled,
         colors = ButtonColors(

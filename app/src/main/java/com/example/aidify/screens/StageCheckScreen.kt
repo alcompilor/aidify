@@ -18,12 +18,12 @@ import com.example.aidify.R
 import com.example.aidify.models.Route
 import com.example.aidify.ui.components.NextScreenBtn
 import com.example.aidify.ui.components.PrevScreenBtn
-import com.example.aidify.viewmodels.StageViewModel
+import com.example.aidify.viewmodels.StageCheckViewModel
 import com.example.aidify.ui.components.OpenQuestion
 
 @Composable
-fun StageScreen(viewModel: StageViewModel, navController: NavController) {
-    val buttonEnabled by viewModel.isSubmitButtonEnabled.collectAsState()
+fun StageCheckScreen(viewModel: StageCheckViewModel, navController: NavController) {
+    val buttonEnabled by viewModel.isStageSubmitButtonEnabled.collectAsState()
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -56,7 +56,7 @@ fun StageScreen(viewModel: StageViewModel, navController: NavController) {
             placeholderText = stringResource(R.string.pil_response_placeholder),
             onValueChange = { input ->
                 viewModel.pushSymptoms(input)
-                viewModel.updateSubmitButton(input)
+                viewModel.updateStageSubmitButton(input)
             },
         )
     }

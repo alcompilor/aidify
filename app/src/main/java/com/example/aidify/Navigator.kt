@@ -16,9 +16,9 @@ import com.example.aidify.screens.UncopeScreen
 import com.example.aidify.viewmodels.DataViewModel
 import com.example.aidify.viewmodels.UncopeViewModel
 import com.example.aidify.screens.EducationalLibraryScreen
-import com.example.aidify.screens.PilScreen
+import com.example.aidify.screens.StageCheckScreen
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
-import com.example.aidify.viewmodels.PilViewModel
+import com.example.aidify.viewmodels.StageCheckViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -60,14 +60,14 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
         }
 
         composable(
-            route = Route.PIL.name,
+            route = Route.STAGECHECK.name,
             enterTransition = animations.enterTransition,
             exitTransition = animations.exitTransition,
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            val pilViewModel = PilViewModel(dataViewModel.state)
-            PilScreen(viewModel = pilViewModel, navController = navController)
+            val stageCheckViewModel = StageCheckViewModel(dataViewModel.state)
+            StageCheckScreen(viewModel = stageCheckViewModel, navController = navController)
         }
 
         composable(

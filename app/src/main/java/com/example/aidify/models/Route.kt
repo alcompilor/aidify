@@ -4,7 +4,7 @@ enum class Route {
     Welcome,
     OpenQuestions,
     UNCOPE,
-    PIL,
+    STAGECHECK,
     Summary,
     EducationLibrary
 }

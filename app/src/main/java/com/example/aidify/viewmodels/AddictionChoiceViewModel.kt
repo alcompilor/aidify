@@ -7,7 +7,7 @@ import com.example.aidify.models.MisuseType
 import com.example.aidify.models.ParticipantData
 
 class AddictionChoiceViewModel(private val _state: MutableState<ParticipantData>) : ViewModel() {
-    
+
     private val _continueBtnEnabled = mutableStateOf(false)
     val continueBtnEnabled: Boolean get() = _continueBtnEnabled.value
 

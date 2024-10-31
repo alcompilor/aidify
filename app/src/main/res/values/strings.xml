@@ -30,4 +30,8 @@
     <string name="welcome_subheadline">Quickly evaluate your substance use with a self-assessment and get personalized insights</string>
     <string name="educational_library">Education Library</string>
     <string name="welcome_headline">Your first step toward a healthier you</string>
+    <string name="addiction_choice_title">What addiction do you have?</string>
+    <string name="addiction_alcohol">Alcohol</string>
+    <string name="addiction_drugs">Substance</string>
+    <string name="continue_button">Continue</string>
 </resources>

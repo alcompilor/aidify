@@ -29,7 +29,7 @@ fun AddictionChoiceScreen(
     navController: NavController,
     viewModel: AddictionChoiceViewModel
 ) {
-    var selectedOption by remember { mutableStateOf(viewModel.getMisuseType()) }
+    val selectedOption = viewModel.getMisuseType()
 
     Column(
         modifier = Modifier
@@ -54,10 +54,7 @@ fun AddictionChoiceScreen(
             ) {
                 RadioButton(
                     selected = selectedOption == MisuseType.ALCOHOL,
-                    onClick = {
-                        selectedOption = MisuseType.ALCOHOL
-                        viewModel.setMisuseType(MisuseType.ALCOHOL)
-                    },
+                    onClick = { viewModel.setMisuseType(MisuseType.ALCOHOL) },
                     colors = RadioButtonDefaults.colors(
                         selectedColor = aidifyTheme.colors.accent4,
                         unselectedColor = aidifyTheme.colors.secondaryText
@@ -80,10 +77,7 @@ fun AddictionChoiceScreen(
             ) {
                 RadioButton(
                     selected = selectedOption == MisuseType.SUBSTANCE,
-                    onClick = {
-                        selectedOption = MisuseType.SUBSTANCE
-                        viewModel.setMisuseType(MisuseType.SUBSTANCE)
-                    },
+                    onClick = { viewModel.setMisuseType(MisuseType.SUBSTANCE) },
                     colors = RadioButtonDefaults.colors(
                         selectedColor = aidifyTheme.colors.accent4,
                         unselectedColor = aidifyTheme.colors.secondaryText

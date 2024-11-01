@@ -1,5 +1,6 @@
 package com.example.aidify.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowForwardIos
@@ -52,7 +53,9 @@ fun AddictionChoiceScreen(
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(vertical = 8.dp)
+                modifier = Modifier
+                    .padding(vertical = 8.dp)
+                    .clickable { viewModel.setMisuseType(MisuseType.ALCOHOL) }
             ) {
                 RadioButton(
                     selected = selectedOption == MisuseType.ALCOHOL,
@@ -75,7 +78,9 @@ fun AddictionChoiceScreen(
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(vertical = 8.dp)
+                modifier = Modifier
+                    .padding(vertical = 8.dp)
+                    .clickable { viewModel.setMisuseType(MisuseType.SUBSTANCE) }
             ) {
                 RadioButton(
                     selected = selectedOption == MisuseType.SUBSTANCE,

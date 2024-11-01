@@ -15,10 +15,12 @@ import com.example.aidify.models.Route
 import com.example.aidify.screens.EducationalLibraryScreen
 import com.example.aidify.screens.UncopeScreen
 import com.example.aidify.screens.WelcomeScreen
+import com.example.aidify.screens.AddictionChoiceScreen
 import com.example.aidify.viewmodels.DataViewModel
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
 import com.example.aidify.viewmodels.UncopeViewModel
 import com.example.aidify.viewmodels.WelcomeViewModel
+import com.example.aidify.viewmodels.AddictionChoiceViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -40,6 +42,19 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             val welcomeViewModel: WelcomeViewModel = viewModel()
             WelcomeScreen(viewmodel = welcomeViewModel, navController = navController)
         }
+
+        composable(
+            route = Route.AddictionChoice.name,
+            enterTransition = animations.enterTransition,
+            exitTransition = animations.exitTransition,
+            popEnterTransition = animations.popEnterTransition,
+            popExitTransition = animations.popExitTransition
+        ) {
+
+            val addictionChoiceViewModel = AddictionChoiceViewModel(dataViewModel.state)
+            AddictionChoiceScreen(navController = navController, viewModel = addictionChoiceViewModel)
+        }
+
 
         composable(
             route = Route.OpenQuestions.name,

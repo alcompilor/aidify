@@ -10,6 +10,7 @@
     <string name="uncope_question_6">Have you ever used alcohol or drugs to relieve emotional discomfort, such as fear or anxiety?</string>
     <string name="symptoms">Symptoms</string>
     <string name="back_button">Back</string>
+    <string name="next_button">Next</string>
     <string name="uncope_screen_title">Wellness Check</string>
     <string name="binary_option_yes">Yes</string>
     <string name="binary_option_no">No</string>
@@ -30,4 +31,7 @@
     <string name="welcome_subheadline">Quickly evaluate your substance use with a self-assessment and get personalized insights</string>
     <string name="educational_library">Education Library</string>
     <string name="welcome_headline">Your first step toward a healthier you</string>
+    <string name="addiction_choice_title">What addiction do you have?</string>
+    <string name="addiction_alcohol">Alcohol</string>
+    <string name="addiction_substance">Substance</string>
 </resources>

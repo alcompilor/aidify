@@ -92,7 +92,7 @@ fun AddictionChoiceScreen(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = stringResource(id = R.string.addiction_drugs),
+                    text = stringResource(id = R.string.addiction_substance),
                     style = aidifyTheme.typography.paragraph.copy(
                         fontWeight = FontWeight.Bold,
                         fontSize = 20.sp

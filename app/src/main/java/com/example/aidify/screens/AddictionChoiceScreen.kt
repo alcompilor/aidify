@@ -2,11 +2,8 @@ package com.example.aidify.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.NavigateNext
+import androidx.compose.material.icons.automirrored.rounded.ArrowForwardIos
 import androidx.compose.material.icons.outlined.Quiz
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
@@ -21,6 +18,8 @@ import androidx.navigation.NavController
 import com.example.aidify.R
 import com.example.aidify.models.MisuseType
 import com.example.aidify.models.Route
+import com.example.aidify.ui.components.NextScreenBtn
+import com.example.aidify.ui.components.PrevScreenBtn
 import com.example.aidify.ui.components.ScreenTitle
 import com.example.aidify.ui.theme.aidifyTheme
 import com.example.aidify.viewmodels.AddictionChoiceViewModel
@@ -104,28 +103,28 @@ fun AddictionChoiceScreen(
 
         Spacer(modifier = Modifier.height(15.dp))
 
-        Button(
-            onClick = { navController.navigate(Route.UNCOPE.name) },
-            enabled = viewModel.continueBtnEnabled,
-            colors = ButtonDefaults.buttonColors(
-                containerColor = aidifyTheme.colors.accent1,
-                contentColor = aidifyTheme.colors.primaryText
-            ),
+        Row(
             modifier = Modifier
-                .fillMaxWidth(0.5f)
-                .padding(vertical = 12.dp)
-                .height(50.dp)
+                .fillMaxWidth(0.9f)
+                .padding(vertical = 16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(
-                text = stringResource(id = R.string.continue_button),
-                style = aidifyTheme.typography.clickable,
+
+            PrevScreenBtn(
+                text = stringResource(id = R.string.back_button),
+                isEnabled = true,
+                navController = navController
             )
-            Icon(
-                imageVector = Icons.AutoMirrored.Outlined.NavigateNext,
-                contentDescription = null,
-                modifier = Modifier.padding(start = 4.dp)
+
+
+            NextScreenBtn(
+                text = stringResource(id = R.string.next_button),
+                isEnabled = viewModel.continueBtnEnabled,
+                navController = navController,
+                route = Route.UNCOPE,
+                icon = Icons.AutoMirrored.Rounded.ArrowForwardIos
+
             )
         }
-
     }
 }

@@ -32,7 +32,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Welcome.name,
+        startDestination = Route.STAGECHECK.name,
         modifier = Modifier.then(modifier)
     ) {
         composable(
@@ -55,7 +55,10 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
         ) {
 
             val addictionChoiceViewModel = AddictionChoiceViewModel(dataViewModel.state)
-            AddictionChoiceScreen(navController = navController, viewModel = addictionChoiceViewModel)
+            AddictionChoiceScreen(
+                navController = navController,
+                viewModel = addictionChoiceViewModel
+            )
         }
 
 
@@ -87,7 +90,11 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popExitTransition = animations.popExitTransition
         ) {
             val stageCheckViewModel = StageCheckViewModel(dataViewModel.state)
-            StageCheckScreen(viewModel = stageCheckViewModel, navController = navController)
+            StageCheckScreen(
+                viewModel = stageCheckViewModel,
+                navController = navController,
+                dataViewModel::performAiProcessing
+            )
         }
 
         composable(

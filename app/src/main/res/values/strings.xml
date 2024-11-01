@@ -25,9 +25,9 @@
     <string name="substance_category">Substance</string>
     <string name="start_button">Start</string>
     <string name="description">Description</string>
-    <string name="pil_question">What specific changes have you noticed in your thoughts, feelings, or behaviors over the past few weeks?</string>
+    <string name="stagecheck_question">What specific changes have you noticed in your thoughts, feelings, or behaviors over the past few weeks?</string>
     <string name="summarize_button">Summarize</string>
-    <string name="pil_response_placeholder">I have experienced sleeping issues, have been obsessed with..., and get angry quickly</string>
+    <string name="stagecheck_response_placeholder">e.g.: I’ve experienced sleep issues, intense obsessions with.., and a tendency to get frustrated easily.</string>
     <string name="submit_button">Submit</string>
     <string name="get_started">Get Started</string>
     <string name="select_language">Select Language</string>
@@ -42,4 +42,6 @@
     <string name="ai_loading_notice">Hang tight, we\'re working on it!</string>
     <string name="ai_success_notice">Completed</string>
     <string name="ai_error_notice">An error occurred, try again later</string>
+    <string name="symptoms_screen_subheadline">Sharing your symptoms will help improve our analysis</string>
+    <string name="assess_button">Assess</string>
 </resources>

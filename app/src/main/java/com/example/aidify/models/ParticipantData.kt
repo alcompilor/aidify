@@ -1,5 +1,7 @@
 package com.example.aidify.models
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ParticipantData(
     val misuseType: MisuseType? = null,
     val openQuestions: OpenQuestions = OpenQuestions(),
@@ -37,7 +39,7 @@ data class ParticipantData(
         return this.copy(symptoms = value)
     }
 
-    fun updateSummary(value: String): ParticipantData {
+    fun updateSummary(value: Summary): ParticipantData {
         val updatedResult = result.copy(summary = value)
         return this.copy(result = updatedResult)
     }
@@ -58,11 +60,13 @@ data class ParticipantData(
     }
 }
 
+@Serializable
 enum class MisuseType {
     ALCOHOL,
     SUBSTANCE
 }
 
+@Serializable
 enum class Question {
     Q1,
     Q2,
@@ -72,6 +76,7 @@ enum class Question {
     Q6
 }
 
+@Serializable
 data class UncopeQuestions(
     val q1: Boolean? = null,
     val q2: Boolean? = null,
@@ -85,6 +90,7 @@ data class UncopeQuestions(
     }
 }
 
+@Serializable
 data class OpenQuestions(
     val q1: String? = null,
     val q2: String? = null,
@@ -94,11 +100,13 @@ data class OpenQuestions(
     }
 }
 
+@Serializable
 data class Result(
-    val summary: String? = null,
+    val summary: Summary = Summary(),
     val organizations: List<Organization> = listOf()
 )
 
+@Serializable
 data class Organization(
     val name: String,
     val phone: String,
@@ -107,3 +115,16 @@ data class Organization(
     val website: String,
     val description: String? = null,
 )
+
+@Serializable
+data class Summary(
+    val feedback: String? = null,
+    val assessment: String? = null,
+    val abuseRisk: String? = null
+)
+
+@Serializable
+enum class Language {
+    EN,
+    SV
+}

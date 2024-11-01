@@ -115,7 +115,7 @@ fun AddictionChoiceScreen(
                 text = stringResource(id = R.string.next_button),
                 isEnabled = viewModel.continueBtnEnabled,
                 navController = navController,
-                route = Route.UNCOPE,
+                route = Route.OpenQuestions,
                 icon = Icons.AutoMirrored.Rounded.ArrowForwardIos
 
             )

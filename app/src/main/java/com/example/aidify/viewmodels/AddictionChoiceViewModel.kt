@@ -24,7 +24,10 @@ class AddictionChoiceViewModel(private val _state: MutableState<ParticipantData>
         updateContinueButtonState()
     }
 
+
     private fun updateContinueButtonState() {
         _continueBtnEnabled.value = (_state.value.misuseType != null)
     }
+
+
 }

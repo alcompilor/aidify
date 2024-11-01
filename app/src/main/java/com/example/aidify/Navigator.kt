@@ -21,6 +21,7 @@ import com.example.aidify.viewmodels.EducationalLibraryViewModel
 import com.example.aidify.viewmodels.UncopeViewModel
 import com.example.aidify.viewmodels.WelcomeViewModel
 import com.example.aidify.viewmodels.AddictionChoiceViewModel
+import com.example.aidify.screens.LoadingAIScreen
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -95,6 +96,22 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
         ) {
             val educationalLibraryViewModel: EducationalLibraryViewModel = viewModel()
             EducationalLibraryScreen(educationalLibraryViewModel, navController)
+        }
+
+        composable(
+            route = Route.LoadingAI.name,
+            enterTransition = animations.enterTransition,
+            exitTransition = animations.exitTransition,
+            popEnterTransition = animations.popEnterTransition,
+            popExitTransition = animations.popExitTransition
+        ) {
+            LoadingAIScreen(
+                requestState = dataViewModel.aiRequestState,
+                resetState = dataViewModel::resetAiRequestState,
+                navController = navController,
+                successRoute = Route.Summary,
+                failRoute = Route.Welcome
+            )
         }
     }
 }

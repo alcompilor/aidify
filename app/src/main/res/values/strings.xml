@@ -34,4 +34,7 @@
     <string name="addiction_choice_title">What addiction do you have?</string>
     <string name="addiction_alcohol">Alcohol</string>
     <string name="addiction_substance">Substance</string>
+    <string name="ai_loading_notice">Hang tight, we\'re working on it!</string>
+    <string name="ai_success_notice">Completed</string>
+    <string name="ai_error_notice">An error occurred, try again later</string>
 </resources>

@@ -32,7 +32,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.STAGECHECK.name,
+        startDestination = Route.Welcome.name,
         modifier = Modifier.then(modifier)
     ) {
         composable(

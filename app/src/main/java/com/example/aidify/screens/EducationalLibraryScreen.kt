@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.LocalLibrary
 import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material3.Tab
@@ -133,8 +134,8 @@ fun EducationalLibraryScreen(viewModel: EducationalLibraryViewModel, navControll
                 text = stringResource(R.string.start_button),
                 isEnabled = true,
                 navController = navController,
-                route = Route.OpenQuestions,
-                icon = Icons.Rounded.Home
+                route = Route.Welcome,
+                icon = Icons.Outlined.Home
             )
         }
     }

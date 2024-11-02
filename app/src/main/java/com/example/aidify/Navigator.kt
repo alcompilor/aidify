@@ -17,11 +17,13 @@ import com.example.aidify.screens.UncopeScreen
 import com.example.aidify.screens.WelcomeScreen
 import com.example.aidify.screens.AddictionChoiceScreen
 import com.example.aidify.viewmodels.DataViewModel
-import com.example.aidify.viewmodels.EducationalLibraryViewModel
 import com.example.aidify.viewmodels.UncopeViewModel
+import com.example.aidify.screens.StageCheckScreen
+import com.example.aidify.viewmodels.EducationalLibraryViewModel
 import com.example.aidify.viewmodels.WelcomeViewModel
 import com.example.aidify.viewmodels.AddictionChoiceViewModel
 import com.example.aidify.screens.LoadingAIScreen
+import com.example.aidify.viewmodels.StageCheckViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -30,7 +32,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Welcome.name,
+        startDestination = Route.STAGECHECK.name,
         modifier = Modifier.then(modifier)
     ) {
         composable(
@@ -53,7 +55,10 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
         ) {
 
             val addictionChoiceViewModel = AddictionChoiceViewModel(dataViewModel.state)
-            AddictionChoiceScreen(navController = navController, viewModel = addictionChoiceViewModel)
+            AddictionChoiceScreen(
+                navController = navController,
+                viewModel = addictionChoiceViewModel
+            )
         }
 
 
@@ -75,6 +80,21 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
         ) {
             val uncopeViewModel = UncopeViewModel(dataViewModel.state)
             UncopeScreen(viewmodel = uncopeViewModel, navController = navController)
+        }
+
+        composable(
+            route = Route.STAGECHECK.name,
+            enterTransition = animations.enterTransition,
+            exitTransition = animations.exitTransition,
+            popEnterTransition = animations.popEnterTransition,
+            popExitTransition = animations.popExitTransition
+        ) {
+            val stageCheckViewModel = StageCheckViewModel(dataViewModel.state)
+            StageCheckScreen(
+                viewModel = stageCheckViewModel,
+                navController = navController,
+                dataViewModel::performAiProcessing
+            )
         }
 
         composable(

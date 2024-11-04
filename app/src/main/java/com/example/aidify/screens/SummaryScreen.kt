@@ -3,6 +3,7 @@ package com.example.aidify.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Assignment
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -42,7 +43,7 @@ fun SummaryScreen(viewModel: SummaryViewModel, navController: NavController, pad
         }
 
 
-        androidx.compose.material3.Button(
+        Button(
             onClick = {
                 viewModel.generatePdf(navController.context)
             }

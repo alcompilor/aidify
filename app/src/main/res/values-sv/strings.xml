@@ -44,4 +44,13 @@
     <string name="ai_error_notice">Ett fel uppstod, försök igen senare</string>
     <string name="symptoms_screen_subheadline">Att dela dina symptom hjälper till att förbättra vår analys</string>
     <string name="assess_button">Bedöm</string>
+    <string name="app_logo_desc">App-logotyp</string>
+    <string name="summary_screen_title">Sammanfattning</string>
+    <string name="summary_description">Dina svar kommer att sammanfattas och lämpliga resurser kommer att föreslås.</string>
+    <string name="download_pdf">Ladda ner PDF</string>
+    <string name="pdf_summary_title">Sammanfattning av resultat</string>
+    <string name="pdf_feedback">Återkoppling: %1$s</string>
+    <string name="pdf_save_success">PDF sparad till %1$s</string>
+    <string name="pdf_save_error">Fel vid generering av PDF</string>
+
 </resources>

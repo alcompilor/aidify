@@ -22,7 +22,7 @@
     <string name="question_icon_description">Question Mark Icon</string>
     <string name="educational_library_screen_title">Educational Library</string>
     <string name="alcohol_category">Alcohol</string>
-    <string name="substance_category">Substance</string>
+    <string name="substance_category">Drugs</string>
     <string name="start_button">Start</string>
     <string name="description">Description</string>
     <string name="stagecheck_question">What specific changes have you noticed in your thoughts, feelings, or behaviors over the past few weeks?</string>
@@ -36,9 +36,9 @@
     <string name="welcome_subheadline">Quickly evaluate your substance use with a self-assessment and get personalized insights</string>
     <string name="educational_library">Education Library</string>
     <string name="welcome_headline">Your first step toward a healthier you</string>
-    <string name="addiction_choice_title">What addiction do you have?</string>
+    <string name="addiction_choice_title">What can\'t you get enough of?</string>
     <string name="addiction_alcohol">Alcohol</string>
-    <string name="addiction_substance">Substance</string>
+    <string name="addiction_substance">Drugs</string>
     <string name="ai_loading_notice">Hang tight, we\'re working on it!</string>
     <string name="ai_success_notice">Completed</string>
     <string name="ai_error_notice">An error occurred, try again later</string>

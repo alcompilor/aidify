@@ -44,14 +44,12 @@
     <string name="ai_error_notice">An error occurred, try again later</string>
     <string name="symptoms_screen_subheadline">Sharing your symptoms will help improve our analysis</string>
     <string name="assess_button">Assess</string>
-
+    <string name="app_logo_desc">App logo</string>
     <string name="summary_screen_title">Summary</string>
     <string name="summary_description">Your answers will be summarized and appropriate resources will be suggested.</string>
     <string name="download_pdf">Download PDF</string>
-
     <string name="pdf_summary_title">Summary of Insights</string>
     <string name="pdf_feedback">Feedback: %1$s</string>
     <string name="pdf_save_success">PDF saved to %1$s</string>
     <string name="pdf_save_error">Error generating PDF</string>
-
 </resources>

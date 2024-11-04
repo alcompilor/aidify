@@ -30,8 +30,8 @@ val primaryDarkText = Color(0xFFC0CAD6)
 val secondaryDarkText = Color(0xFF97a5b8)
 
 /* Background Colors */
-val backgroundLight = Color(0xFFF5FAFD)
-val backgroundDark = Color(0xFF272b34)
+val backgroundLight = Color(0xFFeef6fc)
+val backgroundDark = Color(0xFF1b222e)
 
 /* Accent Colors */
 val accent1Light = Color(0xFFb4ddc5)

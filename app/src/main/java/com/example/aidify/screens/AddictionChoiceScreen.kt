@@ -1,20 +1,25 @@
 package com.example.aidify.screens
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowForwardIos
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.aidify.R
 import com.example.aidify.models.MisuseType
@@ -43,18 +48,14 @@ fun AddictionChoiceScreen(
             style = aidifyTheme.typography.headline,
             color = aidifyTheme.colors.secondaryText,
             textAlign = TextAlign.Center,
-            modifier = Modifier.padding(bottom = 25.dp)
         )
-
-
-        Column(
-            modifier = Modifier.fillMaxWidth(0.8f),
-            horizontalAlignment = Alignment.Start
+        Spacer(modifier = Modifier.height(25.dp))
+        Row(
+            horizontalArrangement = Arrangement.Center
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
-                    .padding(vertical = 8.dp)
                     .clickable { viewModel.setMisuseType(MisuseType.ALCOHOL) }
             ) {
                 RadioButton(
@@ -65,21 +66,18 @@ fun AddictionChoiceScreen(
                         unselectedColor = aidifyTheme.colors.secondaryText
                     )
                 )
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.width(2.dp))
                 Text(
                     text = stringResource(id = R.string.addiction_alcohol),
-                    style = aidifyTheme.typography.highlight.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp
-                    ),
-                    color = aidifyTheme.colors.primaryText
+                    style = aidifyTheme.typography.highlight,
+                    color = aidifyTheme.colors.secondaryText
                 )
             }
+            Spacer(modifier = Modifier.width(20.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
-                    .padding(vertical = 8.dp)
                     .clickable { viewModel.setMisuseType(MisuseType.SUBSTANCE) }
             ) {
                 RadioButton(
@@ -90,24 +88,17 @@ fun AddictionChoiceScreen(
                         unselectedColor = aidifyTheme.colors.secondaryText
                     )
                 )
-                Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     text = stringResource(id = R.string.addiction_substance),
-                    style = aidifyTheme.typography.highlight.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp
-                    ),
-                    color = aidifyTheme.colors.primaryText
+                    style = aidifyTheme.typography.highlight,
+                    color = aidifyTheme.colors.secondaryText
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
         Row(
-            modifier = Modifier
-                .fillMaxWidth(0.9f)
-                .padding(vertical = 16.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
 
@@ -116,7 +107,7 @@ fun AddictionChoiceScreen(
                 isEnabled = true,
                 navController = navController
             )
-
+            Spacer(modifier = Modifier.width(20.dp))
 
             NextScreenBtn(
                 text = stringResource(id = R.string.next_button),

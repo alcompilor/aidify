@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.LocalLibrary
 import androidx.compose.material.icons.outlined.Start
@@ -43,9 +44,71 @@ import com.example.aidify.viewmodels.WelcomeViewModel
 fun WelcomeScreen(viewmodel: WelcomeViewModel, navController: NavController) {
     val context = LocalContext.current
 
-    Box(
+    LazyColumn(
+        verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
+            .padding(0.dp)
+    ) {
+        items(1) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Logo(
+                    text = stringResource(R.string.app_name),
+                    image = R.drawable.logo_lotusmodellen,
+                    width = 122.2.dp,
+                    height = 65.dp,
+                    spacer = 2.5.dp
+                )
+                Spacer(modifier = Modifier.padding(6.dp))
+                Text(
+                    text = stringResource(R.string.welcome_headline),
+                    style = aidifyTheme.typography.subheadline,
+                    textAlign = TextAlign.Center,
+                    color = aidifyTheme.colors.secondaryText
+                )
+                Spacer(modifier = Modifier.padding(8.dp))
+                Text(
+                    text = stringResource(R.string.welcome_subheadline),
+                    style = aidifyTheme.typography.paragraph,
+                    color = aidifyTheme.colors.secondaryText,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 16.dp),
+                    textAlign = TextAlign.Center
+                )
+
+                Spacer(modifier = Modifier.padding(20.dp))
+
+                NextScreenBtn(
+                    text = stringResource(id = R.string.get_started),
+                    isEnabled = true,
+                    navController = navController,
+                    route = Route.AddictionChoice,
+                    icon = Icons.Outlined.Start
+                )
+
+                Spacer(modifier = Modifier.padding(10.dp))
+
+                NextScreenBtn(
+                    text = stringResource(id = R.string.educational_library),
+                    isEnabled = true,
+                    navController = navController,
+                    route = Route.EducationLibrary,
+                    icon = Icons.Outlined.LocalLibrary,
+                )
+            }
+        }
+    }
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
             .padding(0.dp)
     ) {
         LanguageSpinner(
@@ -59,58 +122,5 @@ fun WelcomeScreen(viewmodel: WelcomeViewModel, navController: NavController) {
                 .align(Alignment.TopEnd)
                 .padding(6.dp)
         )
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Logo(
-                text = stringResource(R.string.app_name),
-                image = R.drawable.logo_lotusmodellen,
-                width = 122.2.dp,
-                height = 65.dp,
-                spacer = 2.5.dp
-            )
-            Spacer(modifier = Modifier.padding(6.dp))
-            Text(
-                text = stringResource(R.string.welcome_headline),
-                style = aidifyTheme.typography.subheadline,
-                textAlign = TextAlign.Center,
-                color = aidifyTheme.colors.secondaryText
-            )
-            Spacer(modifier = Modifier.padding(8.dp))
-            Text(
-                text = stringResource(R.string.welcome_subheadline),
-                style = aidifyTheme.typography.paragraph,
-                color = aidifyTheme.colors.secondaryText,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 16.dp),
-                textAlign = TextAlign.Center
-            )
-
-            Spacer(modifier = Modifier.padding(20.dp))
-
-            NextScreenBtn(
-                text = stringResource(id = R.string.get_started),
-                isEnabled = true,
-                navController = navController,
-                route = Route.AddictionChoice,
-                icon = Icons.Outlined.Start
-            )
-
-            Spacer(modifier = Modifier.padding(10.dp))
-
-            NextScreenBtn(
-                text = stringResource(id = R.string.educational_library),
-                isEnabled = true,
-                navController = navController,
-                route = Route.EducationLibrary,
-                icon = Icons.Outlined.LocalLibrary,
-            )
-        }
     }
 }

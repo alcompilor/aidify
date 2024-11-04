@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Insights
 import androidx.compose.material.icons.rounded.Medication
@@ -54,29 +55,31 @@ fun StageCheckScreen(
             icon = Icons.Rounded.Medication,
         )
         Spacer(modifier = Modifier.padding(7.dp))
-        Text(
-            text = stringResource(R.string.symptoms_screen_subheadline),
-            style = aidifyTheme.typography.subheadline,
-            color = aidifyTheme.colors.secondaryText
-        )
-        Spacer(modifier = Modifier.padding(35.dp))
-        Column(
+
+        LazyColumn(
             modifier = Modifier
                 .fillMaxHeight(mainHeightFactor)
         ) {
-            OpenQuestion(
-                question = stringResource(R.string.stagecheck_question),
-                response = viewModel.state.value.symptoms ?: "",
-                placeholderText = stringResource(R.string.stagecheck_response_placeholder),
-                onValueChange = { input ->
-                    viewModel.pushSymptoms(input)
-                    viewModel.updateStageSubmitButton(input)
-                },
-            )
+            items(1) {
+                Text(
+                    text = stringResource(R.string.symptoms_screen_subheadline),
+                    style = aidifyTheme.typography.subheadline,
+                    color = aidifyTheme.colors.secondaryText
+                )
+                Spacer(modifier = Modifier.padding(35.dp))
+                OpenQuestion(
+                    question = stringResource(R.string.stagecheck_question),
+                    response = viewModel.state.value.symptoms ?: "",
+                    placeholderText = stringResource(R.string.stagecheck_response_placeholder),
+                    onValueChange = { input ->
+                        viewModel.pushSymptoms(input)
+                        viewModel.updateStageSubmitButton(input)
+                    },
+                )
+            }
         }
 
         Spacer(modifier = Modifier.weight(1f))
-
 
         Row(
             verticalAlignment = Alignment.CenterVertically,

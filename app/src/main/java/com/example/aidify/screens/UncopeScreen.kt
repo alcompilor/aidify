@@ -56,7 +56,7 @@ fun UncopeScreen(viewmodel: UncopeViewModel, navController: NavController) {
                 text = stringResource(R.string.symptoms),
                 isEnabled = viewmodel.nextScreenBtnEnabled,
                 navController = navController,
-                route = Route.OpenQuestions
+                route = Route.STAGECHECK
             )
         }
     }

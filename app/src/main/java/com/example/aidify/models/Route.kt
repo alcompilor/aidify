@@ -6,7 +6,8 @@ enum class Route {
     OpenQuestions,
     UNCOPE,
     STAGECHECK,
-    Summary,
     EducationLibrary,
     LoadingAI,
+    Summary,
+    RecommendedResources,
 }

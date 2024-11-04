@@ -14,9 +14,8 @@ import androidx.navigation.NavController
 import com.example.aidify.R
 import com.example.aidify.models.Route
 import com.example.aidify.ui.components.NextScreenBtn
-import com.example.aidify.ui.components.PrevScreenBtn
 import com.example.aidify.ui.components.ScreenTitle
-import com.example.aidify.ui.theme.aidifyTheme
+//import com.example.aidify.ui.theme.aidifyTheme
 import com.example.aidify.viewmodels.SummaryViewModel
 
 @Composable
@@ -25,50 +24,41 @@ fun SummaryScreen(viewModel: SummaryViewModel, navController: NavController, pad
         modifier = Modifier
             .fillMaxSize()
             .padding(24.dp),
-        verticalArrangement = Arrangement.SpaceBetween,
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(bottom = 16.dp)
-        ) {
+        ScreenTitle(
+            title = stringResource(R.string.summary_screen_title),
+            icon = Icons.Filled.Assignment
+        )
 
-            Spacer(modifier = Modifier.width(8.dp))
-            ScreenTitle(
-                title = stringResource(R.string.summary_screen_title),
-                icon = Icons.Filled.Assignment
-            )
-
-        }
+        Spacer(modifier = Modifier.height(32.dp))
 
 
-        Button(
-            onClick = {
-                viewModel.generatePdf(navController.context)
-            }
-        ) {
-            Text(text = stringResource(R.string.download_pdf))
-       }
-
-
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            PrevScreenBtn(
-                text = stringResource(R.string.back_button),
-                isEnabled = true,
-                navController = navController
-            )
+            Button(
+                onClick = {
+                    viewModel.generatePdf(navController.context)
+                },
+                modifier = Modifier
+                    .fillMaxWidth(0.8f)
+                    .padding(bottom = 16.dp)
+            ) {
+                Text(text = stringResource(R.string.download_pdf))
+            }
 
             NextScreenBtn(
                 text = stringResource(R.string.next_button),
                 isEnabled = true,
                 navController = navController,
-                route = Route.RecommendedResources
+                route = Route.RecommendedResources,
+                modifier = Modifier.fillMaxWidth(0.8f)
             )
         }
     }
 }
+

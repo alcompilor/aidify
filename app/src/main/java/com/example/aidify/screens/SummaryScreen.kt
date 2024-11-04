@@ -41,13 +41,6 @@ fun SummaryScreen(viewModel: SummaryViewModel, navController: NavController, pad
 
         }
 
-        Text(
-            text = stringResource(R.string.summary_description),
-            style = aidifyTheme.typography.paragraph,
-            color = aidifyTheme.colors.secondaryText,
-            modifier = Modifier.padding(16.dp)
-        )
-
 
         androidx.compose.material3.Button(
             onClick = {

@@ -93,7 +93,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            val summaryViewModel: SummaryViewModel = viewModel()
+            val summaryViewModel = SummaryViewModel(dataViewModel)
             SummaryScreen(viewModel = summaryViewModel, navController = navController, padding = Modifier)
         }
 

@@ -46,9 +46,12 @@
     <string name="assess_button">Assess</string>
     <string name="app_logo_desc">App logo</string>
     <string name="summary_screen_title">Summary</string>
-    <string name="summary_description">Your answers will be summarized and appropriate resources will be suggested.</string>
-    <string name="download_pdf">Download PDF</string>
+    <string name="feedback">Feedback</string>
+    <string name="diagnosis">Diagnosis</string>
+    <string name="risk_of_abuse">Risk of Abuse</string>
+    <string name="no_data">No data available</string>
     <string name="pdf_summary_title">Summary of Insights</string>
+    <string name="download_pdf">Download PDF</string>
     <string name="pdf_feedback">Feedback: %1$s</string>
     <string name="pdf_save_success">PDF saved to %1$s</string>
     <string name="pdf_save_error">Error generating PDF</string>

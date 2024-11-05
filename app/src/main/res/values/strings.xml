@@ -55,4 +55,6 @@
     <string name="pdf_feedback">Feedback: %1$s</string>
     <string name="pdf_save_success">PDF saved to %1$s</string>
     <string name="pdf_save_error">Error generating PDF</string>
+    <string name="get_help_btn">Get help</string>
+    <string name="section_icon_desc">section icon</string>
 </resources>

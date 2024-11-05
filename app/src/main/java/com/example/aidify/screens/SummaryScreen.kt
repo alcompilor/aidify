@@ -1,131 +1,1 @@
-package com.example.aidify.screens
-
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Assignment
-import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import com.example.aidify.R
-import com.example.aidify.models.Route
-import com.example.aidify.viewmodels.SummaryViewModel
-import androidx.compose.foundation.lazy.LazyColumn
-
-
-
-@Composable
-fun SummaryScreen(viewModel: SummaryViewModel, navController: NavController, padding: Modifier) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(bottom = 16.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Filled.Assignment,
-                contentDescription = null,
-                tint = Color.Black,
-                modifier = Modifier.size(24.dp)
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = stringResource(R.string.summary_screen_title),
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
-        }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            item {
-                Text(
-                    text = stringResource(R.string.feedback),
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = Color.Black
-                )
-                Text(
-                    text = viewModel.getFeedback() ?: stringResource(R.string.no_data),
-                    fontSize = 16.sp,
-                    color = Color.Gray
-                )
-            }
-            item {
-                Text(
-                    text = stringResource(R.string.diagnosis),
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = Color.Black
-                )
-                Text(
-                    text = viewModel.getDiagnosis() ?: stringResource(R.string.no_data),
-                    fontSize = 16.sp,
-                    color = Color.Gray
-                )
-            }
-            item {
-                Text(
-                    text = stringResource(R.string.risk_of_abuse),
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = Color.Black
-                )
-                Text(
-                    text = viewModel.getRiskOfAbuse() ?: stringResource(R.string.no_data),
-                    fontSize = 16.sp,
-                    color = Color.Gray
-                )
-            }
-        }
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Button(
-                onClick = {
-                    viewModel.generatePdf(navController.context)
-                },
-                modifier = Modifier
-                    .fillMaxWidth(0.8f)
-                    .padding(bottom = 16.dp)
-            ) {
-                Text(text = stringResource(R.string.download_pdf))
-            }
-
-            Button(
-                onClick = {
-                    navController.navigate(Route.RecommendedResources.name)
-                },
-                modifier = Modifier.fillMaxWidth(0.8f)
-            ) {
-                Text(text = stringResource(R.string.next_button))
-            }
-        }
-    }
-}
-
+package com.example.aidify.screensimport androidx.compose.foundation.layout.Arrangementimport androidx.compose.foundation.layout.Columnimport androidx.compose.foundation.layout.Rowimport androidx.compose.foundation.layout.Spacerimport androidx.compose.foundation.layout.fillMaxWidthimport androidx.compose.foundation.layout.heightimport androidx.compose.foundation.layout.paddingimport androidx.compose.material.icons.Iconsimport androidx.compose.material.icons.outlined.Emergencyimport androidx.compose.material.icons.rounded.AutoGraphimport androidx.compose.material.icons.rounded.SaveAltimport androidx.compose.material3.Buttonimport androidx.compose.material3.ButtonColorsimport androidx.compose.material3.Iconimport androidx.compose.runtime.Composableimport androidx.compose.ui.Alignmentimport androidx.compose.ui.Modifierimport androidx.compose.ui.platform.LocalContextimport androidx.compose.ui.res.stringResourceimport androidx.compose.ui.unit.dpimport androidx.navigation.NavControllerimport com.example.aidify.Rimport com.example.aidify.models.Routeimport com.example.aidify.ui.components.NextScreenBtnimport com.example.aidify.ui.components.ScreenTitleimport com.example.aidify.ui.components.SummaryContentimport com.example.aidify.ui.theme.aidifyThemeimport com.example.aidify.utilities.captureCurrentScreenAndGeneratePdfimport com.example.aidify.viewmodels.SummaryViewModel@Composablefun SummaryScreen(    viewModel: SummaryViewModel,    navController: NavController,    modifier: Modifier = Modifier) {    val context = LocalContext.current    Column {        Row(            horizontalArrangement = Arrangement.SpaceBetween,            modifier = modifier.fillMaxWidth(0.95f)        ) {            ScreenTitle(                title = stringResource(R.string.summary_screen_title),                icon = Icons.Rounded.AutoGraph            )            Button(                onClick = {                    captureCurrentScreenAndGeneratePdf(context)                },                colors = ButtonColors(                    contentColor = aidifyTheme.colors.primaryText,                    containerColor = aidifyTheme.colors.primary100,                    disabledContentColor = aidifyTheme.colors.primaryText,                    disabledContainerColor = aidifyTheme.colors.disabled                )            ) {                Icon(                    imageVector = Icons.Rounded.SaveAlt,                    tint = aidifyTheme.colors.secondaryText,                    contentDescription = stringResource(R.string.download_pdf)                )            }        }        Spacer(modifier = Modifier.height(27.dp))        SummaryContent(viewModel)        Spacer(modifier = Modifier.weight(1f))        Column(            modifier = Modifier                .fillMaxWidth()                .padding(top = 10.dp),            verticalArrangement = Arrangement.Center,            horizontalAlignment = Alignment.CenterHorizontally        ) {            NextScreenBtn(                text = stringResource(R.string.get_help_btn),                isEnabled = true,                icon = Icons.Outlined.Emergency,                navController = navController,                route = Route.RecommendedResources            )        }    }}

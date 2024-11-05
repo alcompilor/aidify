@@ -97,6 +97,21 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             SummaryScreen(viewModel = summaryViewModel, navController = navController, padding = Modifier)
         }
 
+        composable(
+            route = Route.RecommendedResources.name,
+            enterTransition = animations.enterTransition,
+            exitTransition = animations.exitTransition,
+            popEnterTransition = animations.popEnterTransition,
+            popExitTransition = animations.popExitTransition
+        ) {
+            val recommendedOrganizationsViewModel = RecommendedOrganizationsViewModel(dataViewModel)
+            RecommendedOrganizationsScreen(
+                viewModel = recommendedOrganizationsViewModel,
+                navController = navController
+            )
+        }
+
+
 
         composable(
             route = Route.EducationLibrary.name,

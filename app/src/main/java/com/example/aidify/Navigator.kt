@@ -12,18 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aidify.models.NavigatorAnimations
 import com.example.aidify.models.Route
-import com.example.aidify.screens.EducationalLibraryScreen
-import com.example.aidify.screens.UncopeScreen
-import com.example.aidify.screens.WelcomeScreen
-import com.example.aidify.screens.AddictionChoiceScreen
-import com.example.aidify.viewmodels.DataViewModel
-import com.example.aidify.viewmodels.UncopeViewModel
-import com.example.aidify.screens.StageCheckScreen
-import com.example.aidify.viewmodels.EducationalLibraryViewModel
-import com.example.aidify.viewmodels.WelcomeViewModel
-import com.example.aidify.viewmodels.AddictionChoiceViewModel
-import com.example.aidify.screens.LoadingAIScreen
-import com.example.aidify.viewmodels.StageCheckViewModel
+import com.example.aidify.screens.*
+import com.example.aidify.viewmodels.*
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -53,14 +43,12 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-
             val addictionChoiceViewModel = AddictionChoiceViewModel(dataViewModel.state)
             AddictionChoiceScreen(
                 navController = navController,
                 viewModel = addictionChoiceViewModel
             )
         }
-
 
         composable(
             route = Route.OpenQuestions.name,
@@ -69,6 +57,7 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
+            // Add OpenQuestionsScreen logic here when available
         }
 
         composable(
@@ -104,8 +93,10 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-
+            val summaryViewModel = SummaryViewModel(dataViewModel.state)
+            SummaryScreen(viewModel = summaryViewModel, navController = navController, padding = Modifier)
         }
+
 
         composable(
             route = Route.EducationLibrary.name,

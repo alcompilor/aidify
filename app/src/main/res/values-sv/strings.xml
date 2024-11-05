@@ -44,4 +44,17 @@
     <string name="ai_error_notice">Ett fel uppstod, försök igen senare</string>
     <string name="symptoms_screen_subheadline">Att dela dina symptom hjälper till att förbättra vår analys</string>
     <string name="assess_button">Bedöm</string>
+    <string name="app_logo_desc">App-logotyp</string>
+    <string name="summary_screen_title">Översikt</string>
+    <string name="feedback">Återkoppling</string>
+    <string name="diagnosis">Diagnos</string>
+    <string name="risk_of_abuse">Risk för missbruk</string>
+    <string name="no_data">Ingen data tillgänglig</string>
+    <string name="pdf_summary_title">Sammanfattning av insikter</string>
+    <string name="download_pdf">Ladda ner PDF</string>
+    <string name="pdf_feedback">Återkoppling: %1$s</string>
+    <string name="pdf_save_success">PDF sparad till %1$s</string>
+    <string name="pdf_save_error">Fel vid generering av PDF</string>
+    <string name="get_help_btn">Få hjälp</string>
+    <string name="section_icon_desc">avsnittsikon</string>
 </resources>

@@ -89,7 +89,7 @@ fun WelcomeScreen(viewmodel: WelcomeViewModel, navController: NavController) {
                     text = stringResource(id = R.string.get_started),
                     isEnabled = true,
                     navController = navController,
-                    route = Route.AddictionChoice,
+                    route = Route.Summary,
                     icon = Icons.Outlined.Start
                 )
 

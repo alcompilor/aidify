@@ -93,9 +93,10 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            val summaryViewModel = SummaryViewModel(dataViewModel)
+            val summaryViewModel = SummaryViewModel(dataViewModel.state)
             SummaryScreen(viewModel = summaryViewModel, navController = navController, padding = Modifier)
         }
+
 
         composable(
             route = Route.EducationLibrary.name,

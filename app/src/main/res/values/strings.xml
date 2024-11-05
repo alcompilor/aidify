@@ -55,4 +55,8 @@
     <string name="pdf_feedback">Feedback: %1$s</string>
     <string name="pdf_save_success">PDF saved to %1$s</string>
     <string name="pdf_save_error">Error generating PDF</string>
+    <string name="recommended_organizations">Recommended Organizations</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="back_to_summary">Back to Summary</string>
+    <string name="visit_website">Visit Website</string>
 </resources>

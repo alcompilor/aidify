@@ -12,6 +12,10 @@ class StageCheckViewModel(private val _state: MutableState<ParticipantData>) : V
     val isStageSubmitButtonEnabled: StateFlow<Boolean> = _isStageSubmitButtonEnabled
     val state: State<ParticipantData> get() = _state
 
+    init {
+        updateStageSubmitButton(_state.value.symptoms ?: "")
+    }
+
     fun updateStageSubmitButton(response: String) {
         _isStageSubmitButtonEnabled.value = response.isNotEmpty()
     }

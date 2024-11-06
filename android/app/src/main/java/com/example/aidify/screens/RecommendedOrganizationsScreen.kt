@@ -89,6 +89,9 @@ fun RecommendedOrganizationsScreen(
                 route = Route.Welcome,
                 callback = {
                     viewModel.resetData()
+                    while (navController.previousBackStackEntry != null) {
+                        navController.popBackStack()
+                    }
                 }
             )
         }

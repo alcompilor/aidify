@@ -32,7 +32,7 @@ export default {
 
 		const openQuestionsRes = await executeQuery(
 			promptBuilder.systemPrompt(PromptType.OPEN_QUESTIONS, locale),
-			`1: ${payload.openQuestions.q1}\n2: ${payload.openQuestions.q2}`,
+			`Q1: ${payload.openQuestions.q1}\nQ2: ${payload.openQuestions.q2}`,
 			env
 		);
 

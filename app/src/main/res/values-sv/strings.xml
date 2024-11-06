@@ -55,10 +55,14 @@
     <string name="pdf_feedback">Återkoppling: %1$s</string>
     <string name="pdf_save_success">PDF sparad till %1$s</string>
     <string name="pdf_save_error">Fel vid generering av PDF</string>
-    <string name="recommended_organizations">Rekommenderade Organisationer</string>
+    <string name="recommended_organizations">Organisationer</string>
     <string name="back_to_home">Tillbaka till Hem</string>
     <string name="back_to_summary">Tillbaka till Sammanfattning</string>
-    <string name="visit_website">Besök Hemsidan</string>
+    <string name="visit_website">Besök hemsidan</string>
     <string name="get_help_btn">Få hjälp</string>
     <string name="section_icon_desc">avsnittsikon</string>
+    <string name="phone_span">Telefon</string>
+    <string name="email_span">E-post</string>
+    <string name="address_span">Adress</string>
+    <string name="about_span">Om organisationen</string>
 </resources>

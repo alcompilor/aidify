@@ -1,30 +1,33 @@
 package com.example.aidify.screens
 
-import android.content.Intent
-import android.net.Uri
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import android.content.res.Configuration
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Business
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.rounded.Support
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.aidify.R
-import com.example.aidify.models.Organization
 import com.example.aidify.models.Route
 import com.example.aidify.ui.components.NextScreenBtn
+import com.example.aidify.ui.components.OrganizationItem
+import com.example.aidify.ui.components.PrevScreenBtn
 import com.example.aidify.ui.components.ScreenTitle
-import com.example.aidify.ui.theme.aidifyTheme
 import com.example.aidify.viewmodels.RecommendedOrganizationsViewModel
 
 @Composable
@@ -34,18 +37,19 @@ fun RecommendedOrganizationsScreen(
     modifier: Modifier = Modifier
 ) {
     val organizations = viewModel.organizations.collectAsState().value
-    val context = LocalContext.current
+
+    val config = LocalConfiguration.current
+    val listHeightFactor =
+        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) 0.69f else 0.90f
 
     Column {
         Row(
             horizontalArrangement = Arrangement.Start,
             modifier = modifier
-                .fillMaxWidth(0.95f)
-                .padding(16.dp)
         ) {
             ScreenTitle(
                 title = stringResource(R.string.recommended_organizations),
-                icon = Icons.Outlined.Business
+                icon = Icons.Rounded.Support
             )
         }
 
@@ -54,8 +58,9 @@ fun RecommendedOrganizationsScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
+                .fillMaxHeight(listHeightFactor)
                 .padding(horizontal = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             items(organizations.size) { index ->
                 OrganizationItem(organization = organizations[index])
@@ -64,73 +69,25 @@ fun RecommendedOrganizationsScreen(
 
         Spacer(modifier = Modifier.weight(1f))
 
-        Column(
+        Row(
+            horizontalArrangement = Arrangement.SpaceAround,
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 16.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
-            NextScreenBtn(
-                text = stringResource(R.string.back_to_summary),
+            PrevScreenBtn(
+                text = stringResource(R.string.back_button),
                 isEnabled = true,
-                icon = Icons.Outlined.Business,
                 navController = navController,
-                route = Route.Summary
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
-
             NextScreenBtn(
-                text = stringResource(R.string.back_to_home),
+                text = stringResource(R.string.start_button),
                 isEnabled = true,
-                icon = Icons.Outlined.Business,
+                icon = Icons.Outlined.Home,
                 navController = navController,
                 route = Route.Welcome
             )
         }
-    }
-}
-
-@Composable
-fun OrganizationItem(organization: Organization) {
-    val context = LocalContext.current
-
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp)
-    ) {
-        Text(
-            text = organization.name,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
-            color = aidifyTheme.colors.primaryText
-        )
-
-        Spacer(modifier = Modifier.height(4.dp))
-
-        Text(text = "Phone: ${organization.phone}", fontSize = 16.sp, color = aidifyTheme.colors.secondaryText)
-        Text(text = "Email: ${organization.email}", fontSize = 16.sp, color = aidifyTheme.colors.secondaryText)
-        Text(text = "Address: ${organization.address}", fontSize = 16.sp, color = aidifyTheme.colors.secondaryText)
-
-        organization.description?.let {
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(text = it, fontSize = 16.sp, color = aidifyTheme.colors.secondaryText)
-        }
-
-        organization.website.let { url ->
-            Text(
-                text = stringResource(R.string.visit_website),
-                color = aidifyTheme.colors.accent1,
-                modifier = Modifier.clickable {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                    context.startActivity(intent)
-                }
-            )
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
     }
 }

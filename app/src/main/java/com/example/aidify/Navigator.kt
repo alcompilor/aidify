@@ -12,8 +12,22 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aidify.models.NavigatorAnimations
 import com.example.aidify.models.Route
-import com.example.aidify.screens.*
-import com.example.aidify.viewmodels.*
+import com.example.aidify.screens.AddictionChoiceScreen
+import com.example.aidify.screens.EducationalLibraryScreen
+import com.example.aidify.screens.LoadingAIScreen
+import com.example.aidify.screens.RecommendedOrganizationsScreen
+import com.example.aidify.screens.StageCheckScreen
+import com.example.aidify.screens.SummaryScreen
+import com.example.aidify.screens.UncopeScreen
+import com.example.aidify.screens.WelcomeScreen
+import com.example.aidify.viewmodels.AddictionChoiceViewModel
+import com.example.aidify.viewmodels.DataViewModel
+import com.example.aidify.viewmodels.EducationalLibraryViewModel
+import com.example.aidify.viewmodels.RecommendedOrganizationsViewModel
+import com.example.aidify.viewmodels.StageCheckViewModel
+import com.example.aidify.viewmodels.SummaryViewModel
+import com.example.aidify.viewmodels.UncopeViewModel
+import com.example.aidify.viewmodels.WelcomeViewModel
 
 @Composable
 fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -109,7 +123,8 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            val recommendedOrganizationsViewModel = RecommendedOrganizationsViewModel(dataViewModel)
+            val recommendedOrganizationsViewModel =
+                RecommendedOrganizationsViewModel(dataViewModel.state)
             RecommendedOrganizationsScreen(
                 viewModel = recommendedOrganizationsViewModel,
                 navController = navController

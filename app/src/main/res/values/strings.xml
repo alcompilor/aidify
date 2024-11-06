@@ -55,10 +55,14 @@
     <string name="pdf_feedback">Feedback: %1$s</string>
     <string name="pdf_save_success">PDF saved to %1$s</string>
     <string name="pdf_save_error">Error generating PDF</string>
-    <string name="recommended_organizations">Recommended Organizations</string>
+    <string name="recommended_organizations">Organizations</string>
     <string name="back_to_home">Back to Home</string>
     <string name="back_to_summary">Back to Summary</string>
-    <string name="visit_website">Visit Website</string>
+    <string name="visit_website">Visit website</string>
     <string name="get_help_btn">Get help</string>
     <string name="section_icon_desc">section icon</string>
+    <string name="phone_span">Phone</string>
+    <string name="email_span">Email</string>
+    <string name="address_span">Address</string>
+    <string name="about_span">About the organization</string>
 </resources>

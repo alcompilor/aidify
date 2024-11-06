@@ -79,8 +79,8 @@ fun OpenQuestion(
                     unfocusedPlaceholderColor = aidifyTheme.colors.secondaryText,
                     focusedPlaceholderColor = aidifyTheme.colors.secondaryText,
                     focusedTextColor = aidifyTheme.colors.primaryText,
-                    cursorColor = aidifyTheme.colors.accent4
-
+                    cursorColor = aidifyTheme.colors.accent4,
+                    unfocusedTextColor = aidifyTheme.colors.primaryText,
                 ),
                 textStyle = aidifyTheme.typography.input,
                 placeholder = {

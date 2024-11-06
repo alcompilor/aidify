@@ -1,8 +1,8 @@
 package com.example.aidify.assets
 
-import com.example.aidify.models.EducationalLibraryCard
 import com.example.aidify.models.CardCategory
 import com.example.aidify.models.CardMediaType
+import com.example.aidify.models.EducationalLibraryCard
 
 object cardsData {
     val cards = listOf(

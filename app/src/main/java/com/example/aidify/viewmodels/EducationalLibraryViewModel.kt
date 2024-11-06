@@ -1,15 +1,10 @@
 package com.example.aidify.viewmodels
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
+import com.example.aidify.assets.cardsData
 import com.example.aidify.models.EducationalLibraryCard
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import com.example.aidify.assets.cardsData
-import kotlin.math.log
 
 class EducationalLibraryViewModel : ViewModel() {
     private val _cardList = MutableStateFlow<List<EducationalLibraryCard>>(emptyList())

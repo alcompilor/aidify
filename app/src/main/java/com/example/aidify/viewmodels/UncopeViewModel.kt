@@ -4,9 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
-import com.example.aidify.R
 import com.example.aidify.models.ParticipantData
 import com.example.aidify.models.Question
 

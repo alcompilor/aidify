@@ -1,73 +1,98 @@
 package com.example.aidify.screens
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import android.content.res.Configuration
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.PsychologyAlt
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.aidify.R
+import com.example.aidify.models.Question
 import com.example.aidify.models.Route
+import com.example.aidify.ui.components.NextScreenBtn
+import com.example.aidify.ui.components.OpenQuestion
+import com.example.aidify.ui.components.PrevScreenBtn
+import com.example.aidify.ui.components.ScreenTitle
 import com.example.aidify.viewmodels.OpenEndedViewModel
 
 @Composable
-fun OpenEndedQuestionScreen(viewModel: OpenEndedViewModel = hiltViewModel(), navController: NavController) {
-    // Observe the enabled state of the Next button from the ViewModel
-    val nextButtonEnabled by remember { derivedStateOf { viewModel.nextScreenBtnEnabled } }
-
-    // Observe the answer input state
-    var answer by remember { mutableStateOf("") }
+fun OpenEndedQuestionScreen(viewModel: OpenEndedViewModel, navController: NavController) {
+    val config = LocalConfiguration.current
+    val listHeightFactor =
+        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) 0.69f else 0.90f
 
     Column(
+        verticalArrangement = Arrangement.spacedBy(15.dp),
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
     ) {
-        // Question prompt 1
-        Text(
-            text = "Describe How your problem look like:",
-            fontSize = 20.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp)
+        ScreenTitle(
+            title = stringResource(R.string.openquestions_screen_title),
+            icon = Icons.Rounded.PsychologyAlt
         )
 
-        // Text input field
-        OutlinedTextField(
-            value = answer,
-            onValueChange = {
-                answer = it
-                viewModel.updateAnswer(it) // Update ViewModel state
-            },
+        LazyColumn(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp),
-            label = { Text("Enter your response here") }
-        )
-
-        // Next button
-        Button(
-            onClick = { navController.navigate(Route.Uncope) }, // Navigate to Uncope screen
-            enabled = nextButtonEnabled,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp)
-                .height(50.dp)
+                .padding(5.dp)
+                .fillMaxHeight(listHeightFactor)
         ) {
-            Text("Next", fontSize = 16.sp)
+            items(1) {
+                OpenQuestion(
+                    question = stringResource(R.string.openquestion_q1),
+                    response = viewModel.getAnswer(Question.Q1) ?: "",
+                    placeholderText = stringResource(R.string.openquestion_q1_placeholder),
+                    onValueChange = { input ->
+                        viewModel.updateAnswer(Question.Q1, input)
+                    }
+                )
+
+                Spacer(modifier = Modifier.height(30.dp))
+
+                OpenQuestion(
+                    question = stringResource(R.string.openquestion_q2),
+                    response = viewModel.getAnswer(Question.Q2) ?: "",
+                    placeholderText = stringResource(R.string.openquestion_q2_placeholder),
+                    onValueChange = { input ->
+                        viewModel.updateAnswer(Question.Q2, input)
+                    }
+                )
+            }
         }
 
-        // Progress bar
-        LinearProgressIndicator(
-            progress = 0.3f,
+        Spacer(modifier = Modifier.weight(1f))
+
+        Row(
+            horizontalArrangement = Arrangement.SpaceAround,
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(8.dp)
-                .padding(top = 16.dp)
-        )
+        ) {
+            PrevScreenBtn(
+                text = stringResource(R.string.back_button),
+                isEnabled = true,
+                navController = navController,
+            )
+
+            NextScreenBtn(
+                text = stringResource(R.string.checkup_btn),
+                isEnabled = viewModel.nextScreenBtnEnabled,
+                navController = navController,
+                route = Route.UNCOPE
+            )
+        }
     }
 }

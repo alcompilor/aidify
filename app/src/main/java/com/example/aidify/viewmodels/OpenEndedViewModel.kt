@@ -6,15 +6,14 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.aidify.models.ParticipantData
+import com.example.aidify.models.Question
 
 class OpenEndedViewModel(private val _state: MutableState<ParticipantData>) : ViewModel() {
-    // State to track if the Next button should be enabled
     private val _nextScreenBtnEnabled = mutableStateOf(false)
     val nextScreenBtnEnabled: Boolean get() = _nextScreenBtnEnabled.value
 
-    // State to check if the input field (q1) has been filled out
-    private val _isQuestionAnswered: State<Boolean> = derivedStateOf {
-        _state.value.openQuestions.q1?.isNotBlank() == true
+    private val _areQuestionsAnswered: State<Boolean> = derivedStateOf {
+        _state.value.openQuestions.allAnswered()
     }
 
     init {
@@ -22,14 +21,19 @@ class OpenEndedViewModel(private val _state: MutableState<ParticipantData>) : Vi
     }
 
     private fun updateNextScreenButtonState() {
-        _nextScreenBtnEnabled.value = _isQuestionAnswered.value
+        _nextScreenBtnEnabled.value = _areQuestionsAnswered.value
     }
 
-    fun updateAnswer(text: String) {
-        // Update q1 in openQuestions with the provided text
-        _state.value = _state.value.copy(
-            openQuestions = _state.value.openQuestions.copy(q1 = text)
-        )
+    fun updateAnswer(question: Question, value: String) {
+        _state.value = _state.value.updateOpenQuestion(question, value)
         updateNextScreenButtonState()
+    }
+
+    fun getAnswer(question: Question): String? {
+        return when (question) {
+            Question.Q1 -> _state.value.openQuestions.q1
+            Question.Q2 -> _state.value.openQuestions.q2
+            else -> null
+        }
     }
 }

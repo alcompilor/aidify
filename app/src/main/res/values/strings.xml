@@ -65,4 +65,10 @@
     <string name="email_span">Email</string>
     <string name="address_span">Address</string>
     <string name="about_span">About the organization</string>
+    <string name="openquestion_q1">Why have you sought help now?</string>
+    <string name="openquestion_q1_placeholder">e.g.: \'I feel like I’m losing control over my drinking and…\'</string>
+    <string name="openquestions_screen_title">Reflection</string>
+    <string name="checkup_btn">Checkup</string>
+    <string name="openquestion_q2">What does your problem look like?</string>
+    <string name="openquestion_q2_placeholder">e.g.: \'I’ve been drinking a bottle a day recently, and it’s starting to concern me…\'</string>
 </resources>

@@ -86,7 +86,10 @@ fun RecommendedOrganizationsScreen(
                 isEnabled = true,
                 icon = Icons.Outlined.Home,
                 navController = navController,
-                route = Route.Welcome
+                route = Route.Welcome,
+                callback = {
+                    viewModel.resetData()
+                }
             )
         }
     }

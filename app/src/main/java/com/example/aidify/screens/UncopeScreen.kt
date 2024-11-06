@@ -1,4 +1,3 @@
-
 package com.example.aidify.screens
 
 import android.content.res.Configuration

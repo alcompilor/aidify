@@ -94,8 +94,13 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popExitTransition = animations.popExitTransition
         ) {
             val summaryViewModel = SummaryViewModel(dataViewModel.state)
-            SummaryScreen(viewModel = summaryViewModel, navController = navController, padding = Modifier)
+            SummaryScreen(
+                viewModel = summaryViewModel,
+                navController = navController,
+                modifier = Modifier
+            )
         }
+
 
         composable(
             route = Route.RecommendedResources.name,

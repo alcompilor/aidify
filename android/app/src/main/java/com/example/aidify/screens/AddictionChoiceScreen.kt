@@ -2,12 +2,14 @@ package com.example.aidify.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowForwardIos
@@ -49,7 +51,7 @@ fun AddictionChoiceScreen(
             color = aidifyTheme.colors.secondaryText,
             textAlign = TextAlign.Center,
         )
-        Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(30.dp))
         Row(
             horizontalArrangement = Arrangement.Center
         ) {
@@ -58,36 +60,42 @@ fun AddictionChoiceScreen(
                 modifier = Modifier
                     .clickable { viewModel.setMisuseType(MisuseType.ALCOHOL) }
             ) {
-                RadioButton(
-                    selected = selectedOption == MisuseType.ALCOHOL,
-                    onClick = { viewModel.setMisuseType(MisuseType.ALCOHOL) },
-                    colors = RadioButtonDefaults.colors(
-                        selectedColor = aidifyTheme.colors.accent4,
-                        unselectedColor = aidifyTheme.colors.secondaryText
+                Box(modifier = Modifier.size(10.dp)) {
+                    RadioButton(
+                        selected = selectedOption == MisuseType.ALCOHOL,
+                        onClick = { viewModel.setMisuseType(MisuseType.ALCOHOL) },
+                        colors = RadioButtonDefaults.colors(
+                            selectedColor = aidifyTheme.colors.accent4,
+                            unselectedColor = aidifyTheme.colors.secondaryText
+                        )
                     )
-                )
-                Spacer(modifier = Modifier.width(2.dp))
+                }
+                Spacer(modifier = Modifier.width(13.dp))
                 Text(
                     text = stringResource(id = R.string.addiction_alcohol),
                     style = aidifyTheme.typography.highlight,
                     color = aidifyTheme.colors.secondaryText
                 )
             }
-            Spacer(modifier = Modifier.width(20.dp))
+            Spacer(modifier = Modifier.width(35.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .clickable { viewModel.setMisuseType(MisuseType.SUBSTANCE) }
             ) {
-                RadioButton(
-                    selected = selectedOption == MisuseType.SUBSTANCE,
-                    onClick = { viewModel.setMisuseType(MisuseType.SUBSTANCE) },
-                    colors = RadioButtonDefaults.colors(
-                        selectedColor = aidifyTheme.colors.accent4,
-                        unselectedColor = aidifyTheme.colors.secondaryText
+                Box(modifier = Modifier.size(10.dp)) {
+                    RadioButton(
+                        selected = selectedOption == MisuseType.SUBSTANCE,
+                        onClick = { viewModel.setMisuseType(MisuseType.SUBSTANCE) },
+                        colors = RadioButtonDefaults.colors(
+                            selectedColor = aidifyTheme.colors.accent4,
+                            unselectedColor = aidifyTheme.colors.secondaryText
+                        )
                     )
-                )
+                }
+                Spacer(modifier = Modifier.width(13.dp))
                 Text(
                     text = stringResource(id = R.string.addiction_substance),
                     style = aidifyTheme.typography.highlight,

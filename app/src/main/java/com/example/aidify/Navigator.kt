@@ -15,6 +15,7 @@ import com.example.aidify.models.Route
 import com.example.aidify.screens.AddictionChoiceScreen
 import com.example.aidify.screens.EducationalLibraryScreen
 import com.example.aidify.screens.LoadingAIScreen
+import com.example.aidify.screens.OpenEndedQuestionScreen
 import com.example.aidify.screens.RecommendedOrganizationsScreen
 import com.example.aidify.screens.StageCheckScreen
 import com.example.aidify.screens.SummaryScreen
@@ -23,6 +24,7 @@ import com.example.aidify.screens.WelcomeScreen
 import com.example.aidify.viewmodels.AddictionChoiceViewModel
 import com.example.aidify.viewmodels.DataViewModel
 import com.example.aidify.viewmodels.EducationalLibraryViewModel
+import com.example.aidify.viewmodels.OpenEndedViewModel
 import com.example.aidify.viewmodels.RecommendedOrganizationsViewModel
 import com.example.aidify.viewmodels.StageCheckViewModel
 import com.example.aidify.viewmodels.SummaryViewModel
@@ -71,7 +73,8 @@ fun Navigator(navController: NavHostController, modifier: Modifier = Modifier) {
             popEnterTransition = animations.popEnterTransition,
             popExitTransition = animations.popExitTransition
         ) {
-            // Add OpenQuestionsScreen logic here when available
+            val openEndedViewmodel = OpenEndedViewModel(dataViewModel.state)
+            OpenEndedQuestionScreen(openEndedViewmodel, navController = navController)
         }
 
         composable(

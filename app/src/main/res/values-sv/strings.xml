@@ -65,4 +65,10 @@
     <string name="email_span">E-post</string>
     <string name="address_span">Adress</string>
     <string name="about_span">Om organisationen</string>
+    <string name="openquestion_q1">Varför har du sökt hjälp nu?</string>
+    <string name="openquestion_q1_placeholder">t.ex.: \'Jag känner att jag tappar kontrollen över mitt drickande och…\'</string>
+    <string name="openquestions_screen_title">Reflektion</string>
+    <string name="checkup_btn">Kontroll</string>
+    <string name="openquestion_q2">Hur ser ditt problem ut?</string>
+    <string name="openquestion_q2_placeholder">t.ex.: \'Jag har druckit en flaska om dagen nyligen, och det börjar oroa mig…\'</string>
 </resources>

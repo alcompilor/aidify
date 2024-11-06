@@ -96,7 +96,7 @@ data class OpenQuestions(
     val q2: String? = null,
 ) {
     fun allAnswered(): Boolean {
-        return listOf(q1, q2).all { it != null }
+        return listOf(q1, q2).all { !it.isNullOrEmpty() }
     }
 }
 
